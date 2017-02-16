@@ -1,0 +1,36 @@
+/**app.wxss**/
+@import 'components/wx-toast/wx-toast.wxss';
+@import 'components/icon.wxss';
+
+page {
+  background-color: #efeff4;
+}
+
+.verticle-middle {
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.h-flex {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.v-flex {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.space-between {
+  justify-content: space-between;
+}

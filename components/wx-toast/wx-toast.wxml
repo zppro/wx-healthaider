@@ -1,0 +1,8 @@
+<template name="wx-toast">
+    <view class="toast-area" hidden="{{!toastOptions.visiable}}">
+        <view class="toast-message">
+            <icon type="{{toastOptions.icon}}" size="{{toastOptions.size}}" color="{{toastOptions.color}}"/>
+            <view class="toast-message-content">{{toastOptions.msg}}</view>
+        </view>
+    </view>
+</template>

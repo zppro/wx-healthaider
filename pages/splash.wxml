@@ -1,0 +1,14 @@
+<view class="container" bindtap="pageTap">
+  <view class="v-flex splash-bg" style="background-image:url({{splashImage}})" >
+    <view class="head"></view>
+    <view class="body">
+      <view class="preloader-progress">
+        <view class="preloader-progress-bar" style="width: {{progressWidth}}%">
+        </view>
+      </view>
+    </view>
+    <view class="foot">
+      <text>{{channelUnit.name}} 提供服务</text>
+    </view>
+  </view>
+</view>

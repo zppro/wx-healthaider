@@ -5,7 +5,7 @@ import keys from 'config/keys.js'
 import toast from 'components/wx-toast/wx-toast'
 
 const build = {
-  where: keys.ENV_BUILD_WHERE_PRODUCE, //ENV_BUILD_WHERE_DEBUG_OFFICE, ENV_BUILD_WHERE_PRODUCE
+  where: keys.ENV_BUILD_WHERE_DEBUG_OFFICE, //ENV_BUILD_WHERE_DEBUG_OFFICE, ENV_BUILD_WHERE_PRODUCE
   target: keys.ENV_BUILD_TARGET_WSY // ENV_BUILD_TARGET_WSY
 }
 const serverConfig = require('config/server-config.js')(build)
@@ -16,15 +16,13 @@ App({
     var that = this;
     // 读取配置
     this.config[keys.CONFIG_SERVER] = serverConfig
-    this.libs.http.get(serverConfig.getWXUrl() + 'wxAppConfig/' + serverConfig.getWxAppConfigId(), (wxAppConfig) => {
-      console.log('wxAppConfig')
-      console.log(wxAppConfig)
-      serverConfig.setWxAppConfig(wxAppConfig)
+    this.libs.http.get(serverConfig.getWXUrl() + 'wxaConfig/' + serverConfig.getWxaConfigId(), (wxaConfig) => {
+      console.log('wxaConfig:' + wxaConfig)
+      serverConfig.setWxaConfig(wxaConfig)
       that.appid = serverConfig.appid
       that.appname = serverConfig.appname
       // 读取缓存中的session_key并从服务端读取session
       let gen_session_key = wx.getStorageSync(keys.STG_SESSION_KEY_NAME);
-      console.log(gen_session_key);
       if (gen_session_key) {
         that.libs.http.get(serverConfig.getWXUrl() + 'getSession/' + gen_session_key, (session) => {
           console.log(session);

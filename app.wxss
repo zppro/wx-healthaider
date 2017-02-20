@@ -3,13 +3,21 @@
 @import 'components/icon.wxss';
 
 page {
-  background-color: #efeff4;
+  background-color: white;
+  color:#5b99ec;
 }
 
 .verticle-middle {
   height: 100%;
   display: inline-block;
   vertical-align: middle;
+}
+
+.w100{
+  width:100%;
+}
+.h100{
+  height: 100%;
 }
 
 .h-flex {

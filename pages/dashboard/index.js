@@ -7,6 +7,6 @@ Page({
     },
 
     onLoad: function (options) {
-           console.log("setting");
+        console.log("index");
     }
 })

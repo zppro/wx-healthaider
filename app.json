@@ -1,11 +1,32 @@
 {
   "pages": [
-    "pages/splash"
+    "pages/splash",
+    "pages/dashboard/index",
+    "pages/mine/setting"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#ff0000",
+    "navigationBarBackgroundColor": "#5b99ec",
     "navigationBarTitleText": "",
-    "navigationBarTextStyle": "#fff"
+    "navigationBarTextStyle": "#5b99ec"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#5b99ec",
+    "borderStyle": "#5b99ec",
+    "list": [
+      {
+        "selectedIconPath": "images/健康度.png",
+        "iconPath": "images/健康测试.png",
+        "pagePath": "pages/dashboard/index",
+        "text": "健康"
+      },
+      {
+        "selectedIconPath": "images/设置(6).png",
+        "iconPath": "images/设置.png",
+        "pagePath": "pages/mine/setting",
+        "text": "设置"
+      }
+    ]
   }
 }

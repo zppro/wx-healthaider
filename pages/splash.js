@@ -38,6 +38,7 @@ Page({
     },
     //事件处理函数
     toIndex: function () {
+        console.log("toIndex");
         wx.switchTab({
             url: '/pages/dashboard/index'
         })

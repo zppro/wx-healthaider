@@ -42,11 +42,12 @@ page {
 .immediately-to-index-text{
   position: absolute;
   z-index: 9999;
-  bottom: 80px;
+  bottom: -50px;
   font-size: 20px;
   border: solid 1px #5b99ec;
   border-radius: 4px;
   padding: 8px 16px;
+  opacity: 0;
 }
 
 .foot {

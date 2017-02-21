@@ -6,7 +6,7 @@
       </swiper-item>
     </block>
   </swiper>
-  <view class="immediately-to-index-text" bindtap="toIndex">
+  <view animation="{{immediatelyToIndexAnimationData}}" class="immediately-to-index-text" bindtap="toIndex">
     立即进入
   </view>
   <view class="foot">

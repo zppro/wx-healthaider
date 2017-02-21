@@ -11,7 +11,30 @@ Page({
         circular: true,
         interval: 5000,
         duration: 1000,
-        splash_imgs: []
+        splash_imgs: [],
+        immediatelyToIndexAnimationData: {}
+    },
+    onShow: function () {
+        let animation = wx.createAnimation({
+            duration: 1000,
+            delay: 1000,
+            timingFunction: 'ease-in-out',
+        })
+        animation.opacity(1).translate3d(0, -130, 0).step()
+        // .scale(1.2, 1.2).step({timingFunction:'ease-in-out', delay:0, duration: 70 })
+        // .scale(1, 1).step({timingFunction:'ease-in-out', delay:0, duration: 70 })
+        this.setData({
+            immediatelyToIndexAnimationData: animation.export()
+        })
+
+        setTimeout(function () {
+            animation.scale(1.2, 1.2).step({ timingFunction: 'ease-in-out', delay: 0, duration: 70 })
+                .scale(1, 1).step({ timingFunction: 'ease-in-out', delay: 0, duration: 70 })
+            this.setData({
+                immediatelyToIndexAnimationData: animation.export()
+            })
+        }.bind(this), 2000)
+
     },
     //事件处理函数
     toIndex: function () {
@@ -30,8 +53,14 @@ Page({
                 })
             }
         })
-        app.config[keys.CONFIG_SERVER].wxaConfig && that.setData({
-            splash_imgs: app.config[keys.CONFIG_SERVER].wxaConfig.splash_imgs || []
-        })
+
+        let internalId = setInterval(() => {
+            if (app.appid) {
+                app.config[keys.CONFIG_SERVER].wxaConfig && that.setData({
+                    splash_imgs: app.config[keys.CONFIG_SERVER].wxaConfig.splash_imgs || []
+                })
+                clearInterval(internalId)
+            }
+        }, 20)
     }
 })

@@ -3,7 +3,7 @@
 @import 'components/icon.wxss';
 
 page {
-  background-color: white;
+  background-color: #efefef;
   color:#5b99ec;
 }
 

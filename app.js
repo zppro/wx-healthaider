@@ -5,7 +5,7 @@ import keys from 'config/keys.js'
 import toast from 'components/wx-toast/wx-toast'
 
 const build = {
-  where: keys.ENV_BUILD_WHERE_PRODUCE, //ENV_BUILD_WHERE_DEBUG_OFFICE, ENV_BUILD_WHERE_PRODUCE
+  where: keys.ENV_BUILD_WHERE_DEBUG_OFFICE, //ENV_BUILD_WHERE_DEBUG_OFFICE, ENV_BUILD_WHERE_PRODUCE
   target: keys.ENV_BUILD_TARGET_WSY // ENV_BUILD_TARGET_WSY
 }
 const serverConfig = require('config/server-config.js')(build)
@@ -58,7 +58,6 @@ App({
       success: function (res1) {
         console.log('requestSession with code:' + res1.code);
         that.libs.http.post(that.config[keys.CONFIG_SERVER].getWXUrl() + 'requestSession', { appid: that.appid, code: res1.code }, (ret) => {
-
           if (ret && ret.session_key && ret.session_value) {
             wx.setStorageSync(keys.STG_SESSION_KEY_NAME, ret.session_key);
             that.globalData.session = ret.session_value;
@@ -78,7 +77,8 @@ App({
 
   },
   getUserInfo: function (cb) {
-    var that = this
+    console.log("用户登录");
+        var that = this
     if (this.globalData.userInfo) {
       typeof cb == "function" && cb(this.globalData.userInfo)
     } else {
@@ -88,6 +88,7 @@ App({
           console.log(res1);
           wx.getUserInfo({
             success: function (res2) {
+              console.log("res2");
               that.globalData.userInfo = res2.userInfo
               typeof cb == "function" && cb(that.globalData.userInfo)
             }

@@ -1,0 +1,17 @@
+.show-table{
+    background-color: palevioletred;
+    width: 100%;
+    height: 200px;
+}
+.item-ul{
+    width: 100%;
+}
+.item-ul-ul{
+    width: 100%;
+}
+.item-ul-li{
+    width: 50%;
+    height: 135px;
+    border: 1px solid black;
+    box-sizing: border-box;
+}

@@ -4,8 +4,9 @@ import util from 'utils/util.js'
 import keys from 'config/keys.js'
 import toast from 'components/wx-toast/wx-toast'
 
+
 const build = {
-  where: keys.ENV_BUILD_WHERE_PRODUCE, //ENV_BUILD_WHERE_DEBUG_OFFICE, ENV_BUILD_WHERE_PRODUCE
+  where: keys.ENV_BUILD_WHERE_DEBUG_OFFICE, //ENV_BUILD_WHERE_DEBUG_OFFICE, ENV_BUILD_WHERE_PRODUCE
   target: keys.ENV_BUILD_TARGET_WSY // ENV_BUILD_TARGET_WSY
 }
 const serverConfig = require('config/server-config.js')(build)
@@ -31,14 +32,16 @@ App({
             that.requestSession()
           } else {
             that.globalData.session = session;
-            that.getUserInfo();
+            that.getUserInfo(function (userInfo) {
+              getUserInfoSuccess(session, userInfo);
+            });
           }
-        }, {loadingText: false})
+        }, { loadingText: false })
       } else {
         that.requestSession()
       }
       that.noStateComponentsInit()
-    }, {loadingText: false})
+    }, { loadingText: false })
   },
   noStateComponentsInit: function () {
   },
@@ -49,7 +52,7 @@ App({
         console.log('requestAccessToken:' + ret)
         typeof cb == 'function' && cb(ret)
       }
-    }, {loadingText: false})
+    }, { loadingText: false })
   },
   requestSession: function () {
     console.log('requestSession')
@@ -62,13 +65,15 @@ App({
           if (ret && ret.session_key && ret.session_value) {
             wx.setStorageSync(keys.STG_SESSION_KEY_NAME, ret.session_key);
             that.globalData.session = ret.session_value;
+            wx.getUserInfo({
+              success: function (res2) {
+                that.globalData.userInfo = res2.userInfo
+                getUserInfoSuccess(ret.session_value, res2.userInfo);
+              }
+            });
           }
-        }, {loadingText: false});
-        wx.getUserInfo({
-          success: function (res2) {
-            that.globalData.userInfo = res2.userInfo
-          }
-        });
+        }, { loadingText: false });
+
       },
       fail: function (err) {
         console.log('requestSession error');
@@ -111,3 +116,15 @@ App({
     userInfo: null
   }
 })
+
+
+
+function getUserInfoSuccess(session, userInfo) {
+  var app = getApp();
+  console.log('session:', session)
+  console.log('userInfo: ', userInfo)
+  app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepUser$regist', { session: session, userInfo: userInfo }, (ret) => {
+
+        console.log("注册接口",ret);
+        }, { loadingText: false });
+}

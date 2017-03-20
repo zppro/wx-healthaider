@@ -1,11 +1,32 @@
 {
   "pages": [
-    "pages/splash"
+    "pages/splash",
+    "pages/dashboard/index",
+    "pages/mine/mine"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#ff0000",
+    "navigationBarBackgroundColor": "#5b99ec",
     "navigationBarTitleText": "",
-    "navigationBarTextStyle": "#fff"
+    "navigationBarTextStyle": "#5b99ec"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#5b99ec",
+    "borderStyle": "#5b99ec",
+    "list": [
+      {
+        "selectedIconPath": "images/健康度.png",
+        "iconPath": "images/健康测试.png",
+        "pagePath": "pages/dashboard/index",
+        "text": "健康"
+      },
+      {
+        "selectedIconPath": "images/我的(1).png",
+        "iconPath": "images/我的.png",
+        "pagePath": "pages/mine/mine",
+        "text": "我的"
+      }
+    ]
   }
 }

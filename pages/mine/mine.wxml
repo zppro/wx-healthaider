@@ -1,0 +1,86 @@
+<view class="container">
+  <view bindtap="bindViewTap" class="userinfo">
+   <view  class="banner-img-box">
+     <image class="banner-img" src="../../images/banner.jpg">
+    </image>
+    </view>
+        <view class="userinfo-space-top">
+        <text class="iconfont icon-iconshezhi01" bindtap="setting"></text>
+    </view>
+    <view class="userinfo-avatar-c">
+      <view class="userinfo-avatar-c2">
+        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+        <view class="verticle-middle"></view>
+      </view>
+    </view>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+
+  </view>
+   <view class="h-flex my-manage-item" bindtap="sleepZoneTap">
+    <view class="my-manage-item-icon-c">
+      <view class="my-manage-item-icon-c-share">
+        <text class="iconfont icon-shuimian my-manage-item-icon"/>
+        <view class="verticle-middle"></view>
+      </view>
+      <text class="my-manage-item-text">睡眠带</text>
+      <text class="check-out">未绑定</text>
+    </view>
+  </view>
+   <view class="h-flex my-manage-item" bindtap="braceletTap">
+    <view class="my-manage-item-icon-c">
+      <view class="my-manage-item-icon-c-share">
+        <text class="iconfont icon-shouhuan my-manage-item-icon"/>
+        <view class="verticle-middle"></view>
+      </view>
+      <text class="my-manage-item-text">手环</text>
+       <text class="check-out">未绑定</text>
+    </view>
+  </view>
+   <view class="h-flex my-manage-item" bindtap="otherTap">
+    <view class="my-manage-item-icon-c">
+      <view class="my-manage-item-icon-c-share">
+        <text class="iconfont icon-qita my-manage-item-icon"/>
+        <view class="verticle-middle"></view>
+      </view>
+      <text class="my-manage-item-text">其他</text>  
+    </view>
+  </view>
+  <view class="h-flex my-manage-item my-manage-item-4" bindtap="deleteTap">
+    <view class="my-manage-item-icon-c">
+      <view class="my-manage-item-icon-c-share">
+        <text class="iconfont icon-shanchu my-manage-item-icon"/>
+        <view class="verticle-middle"></view>
+      </view>
+      <text class="my-manage-item-text">删除数据</text>
+    </view>
+  </view>
+  <view class="h-flex my-manage-item" bindtap="ownTap">
+    <view class="my-manage-item-icon-c">
+      <view class="my-manage-item-icon-c-share">
+        <text class="iconfont icon-gongkaiyinsi my-manage-item-icon"/>
+        <view class="verticle-middle"></view>
+      </view>
+      <text class="my-manage-item-text">隐私说明</text>
+    </view>
+  </view>
+  <view class="h-flex my-manage-item" bindtap="useHelpTap">
+    <view class="my-manage-item-icon-c">
+      <view class="my-manage-item-icon-c-share">
+        <text class="iconfont icon-shiyongshuoming my-manage-item-icon"/>
+        <view class="verticle-middle"></view>
+      </view>
+      <text class="my-manage-item-text">如何使用</text>
+    </view>
+  </view>
+  <view class="h-flex my-manage-item" bindtap="downLoadTap">
+    <view class="my-manage-item-icon-c">
+      <view class="my-manage-item-icon-c-share">
+        <text class="iconfont icon-download my-manage-item-icon"/>
+        <view class="verticle-middle"></view>
+      </view>
+      <text class="my-manage-item-text">专业版APP下载</text>
+    </view>
+  </view>
+</view>
+<import src="../../components/wx-toast/wx-toast.wxml" />
+<template is="wx-toast" data="{{toastOptions: toastOptions}}" />

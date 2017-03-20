@@ -1,0 +1,16 @@
+<view class="show-table">
+</view>
+<view class="item-ul v-flex">
+    <view class="item-ul-ul h-flex">
+        <view class="item-ul-li"></view>
+        <view class="item-ul-li"></view>
+    </view>
+   <view class="item-ul-ul h-flex">
+        <view class="item-ul-li"></view>
+        <view class="item-ul-li"></view>
+    </view>
+     <view class="item-ul-ul h-flex">
+        <view class="item-ul-li"></view>
+        <view class="item-ul-li"></view>
+    </view>
+</view>

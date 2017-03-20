@@ -1,9 +1,10 @@
+
 @font-face {font-family: "iconfont";
-  src: url('https://at.alicdn.com/t/font_czwkebpa7sw0zfr.eot?t=1487128907018'); /* IE9*/
-  src: url('https://at.alicdn.com/t/font_czwkebpa7sw0zfr.eot?t=1487128907018#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('https://at.alicdn.com/t/font_czwkebpa7sw0zfr.woff?t=1487128907018') format('woff'), /* chrome, firefox */
-  url('https://at.alicdn.com/t/font_czwkebpa7sw0zfr.ttf?t=1487128907018') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('https://at.alicdn.com/t/font_czwkebpa7sw0zfr.svg?t=1487128907018#iconfont') format('svg'); /* iOS 4.1- */
+  src: url('https://at.alicdn.com/t/font_p9z0fmbwoaltmx6r.eot?t=1487818141693'); /* IE9*/
+  src: url('https://at.alicdn.com/t/font_p9z0fmbwoaltmx6r.eot?t=1487818141693#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('https://at.alicdn.com/t/font_p9z0fmbwoaltmx6r.woff?t=1487818141693') format('woff'), /* chrome, firefox */
+  url('https://at.alicdn.com/t/font_p9z0fmbwoaltmx6r.ttf?t=1487818141693') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('https://at.alicdn.com/t/font_p9z0fmbwoaltmx6r.svg?t=1487818141693#iconfont') format('svg'); /* iOS 4.1- */
 }
 
 .iconfont {
@@ -14,46 +15,29 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-quanbudingdan:before { content: "\e600"; }
+.icon-shanchu:before { content: "\e637"; }
 
-.icon-daishouhuo:before { content: "\e601"; }
+.icon-iconshezhi01:before { content: "\e636"; }
 
-.icon-daifahuo:before { content: "\e602"; }
+.icon-download:before { content: "\e60a"; }
 
-.icon-daifukuan:before { content: "\e603"; }
+.icon-jiankang:before { content: "\e629"; }
 
-.icon-gouwuche1:before { content: "\e604"; }
+.icon-jiankangshuju:before { content: "\e62d"; }
 
-.icon-gouwuche:before { content: "\e618"; }
+.icon-gongkaiyinsi:before { content: "\e66a"; }
 
-.icon-erweima:before { content: "\e696"; }
+.icon-shiyongshuoming:before { content: "\e650"; }
 
-.icon-kefu:before { content: "\e66c"; }
+.icon-iconfonticondingbudaohangshezhizhengchang:before { content: "\e605"; }
+
+.icon-qita:before { content: "\e65f"; }
 
 .icon-cuowu:before { content: "\e641"; }
 
-.icon-zhengque:before { content: "\e664"; }
+.icon-jiankang1:before { content: "\e732"; }
 
-.icon-kaifapiao:before { content: "\e663"; }
+.icon-shuimian:before { content: "\e604"; }
 
-.icon-tuikuan1:before { content: "\e61c"; }
+.icon-shouhuan:before { content: "\e62e"; }
 
-.icon-arrowdown:before { content: "\e692"; }
-
-.icon-arrowleft:before { content: "\e693"; }
-
-.icon-arrowright:before { content: "\e694"; }
-
-.icon-arrowup:before { content: "\e695"; }
-
-.icon-map:before { content: "\e6a2"; }
-
-.icon-shanchu-01:before { content: "\e613"; }
-
-.icon-guanbi-01:before { content: "\e617"; }
-
-.icon-xuanzhong-01:before { content: "\e619"; }
-
-.icon-weixuanzhong-01:before { content: "\e61a"; }
-
-.icon-yemianbianji-:before { content: "\e626"; }

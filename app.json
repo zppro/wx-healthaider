@@ -2,7 +2,8 @@
   "pages": [
     "pages/splash",
     "pages/dashboard/index",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/mine/addDevice"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,0 +1,25 @@
+<view class="container">
+    
+<form bindsubmit="formSubmit" bindreset="formReset">
+
+  <view class="section">
+    <view class="section__title">deviceName</view>
+    <input name="deviceName" placeholder="please input here" />
+    <view class="section__title">deviceMac</view>
+    <input name="deviceMac" placeholder="please input here" />
+     <view class="section__title">deviceType</view>
+    <input name="deviceType" placeholder="please input here" />
+     <view class="section__title">cpNewName</view>
+    <input name="cpNewName" placeholder="please input here" />
+     <view class="section__title">cpNewAge</view>
+    <input name="cpNewAge" placeholder="please input here" />
+     <view class="section__title">cpNewGender</view>
+    <input name="cpNewGender" placeholder="please input here" />   
+  </view>
+ 
+  <view class="btn-area">
+    <button formType="submit">Submit</button>
+    <button formType="reset">Reset</button>
+  </view>
+</form>
+</view>

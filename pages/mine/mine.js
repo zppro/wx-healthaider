@@ -11,6 +11,9 @@ Page({
     },
     sleepZoneTap:function(){
         console.log("sleepZoneTap");
+     wx.navigateTo({
+      url: './addDevice'
+    })
     },
     braceletTap:function(){
          console.log("braceletTap");

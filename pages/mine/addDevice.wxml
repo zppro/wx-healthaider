@@ -5,16 +5,16 @@
   <view class="section">
     <view class="section__title">deviceName</view>
     <input name="deviceName" placeholder="please input here" />
-    <view class="section__title">deviceMac</view>
+    <view class="section__title">devId</view>
+    <input name="devId" placeholder="please input here" />
+     <view class="section__title">deviceMac</view>
     <input name="deviceMac" placeholder="please input here" />
-     <view class="section__title">deviceType</view>
-    <input name="deviceType" placeholder="please input here" />
      <view class="section__title">cpNewName</view>
-    <input name="cpNewName" placeholder="please input here" />
+    <input name="cpNewName" placeholder="请输入姓名" />
      <view class="section__title">cpNewAge</view>
-    <input name="cpNewAge" placeholder="please input here" />
+    <input name="cpNewAge" placeholder="请输入年龄" />
      <view class="section__title">cpNewGender</view>
-    <input name="cpNewGender" placeholder="please input here" />   
+    <input name="cpNewGender" placeholder="请输入性别" />   
   </view>
  
   <view class="btn-area">
@@ -22,4 +22,5 @@
     <button formType="reset">Reset</button>
   </view>
 </form>
+
 </view>

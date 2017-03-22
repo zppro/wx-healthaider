@@ -4,45 +4,59 @@ import keys from '../../config/keys.js'
 var app = getApp()
 Page({
     data: {
-        deviceInfo:{},
-        concernPersonInfo:{}
+        deviceInfo: {},
     },
     //事件
-    formSubmit:function(e){
+    formSubmit: function (e) {
         var that = this
         let deviceInfo = this.data.deviceInfo
-        let concernPersonInfo = this.data.concernPersonInfo
-        if(!that.checkOut()){
-            console.log("空");
+        if (that.checkOut(e)) {
+            console.log("e:", e.detail.value)
+            deviceInfo = e.detail.value
+            deviceInfo.operator = 'add'
+            deviceInfo.type = 'Mattress'
+            that.setData({
+                deviceInfo
+            });
+            console.log('deviceInfo携带数据为：', JSON.stringify(deviceInfo))
+            wx.showActionSheet({
+                itemList: ['确定绑定？'],
+                itemColor: '#f00',
+                success: function (res) {
+                    app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$addDevice', {deviceInfo: deviceInfo,session:app.globalData.session}, (ret) => {
+                        console.log("设备添加接口成功");
+                    }, { loadingText: false });
+                }
+            })
         }
-        deviceInfo.deviceName = e.detail.value.deviceName
-        deviceInfo.deviceMac = e.detail.value.deviceMac
-        deviceInfo.deviceType = e.detail.value.deviceType
-        concernPersonInfo.cpNewName = e.detail.value.cpNewName
-        concernPersonInfo.cpNewAge = e.detail.value.cpNewAge
-        concernPersonInfo.cpNewGender = e.detail.value.cpNewGender
-       that.setData({
-           deviceInfo,
-           concernPersonInfo
-        });
-         console.log('deviceInfo携带数据为：', JSON.stringify(deviceInfo))
-         console.log('concernPersonInfo携带数据为：', JSON.stringify(concernPersonInfo))
 
-          wx.showActionSheet({
-                    itemList: ['确定绑定？'],
-                    itemColor: '#f00',
-                    success: function (res) {
-                    }
-             })
-                   
+
     },
-    checkOut:function(){
-        console.log(this.data.concernPersonInfo.cpNewName)
-        if (app.util.isEmpty(this.data.concernPersonInfo.cpNewName)) {
-                    app.toast.showError('请输入关心人的名字');
+    checkOut: function (e) {
+        var that = this
+        console.log(e.detail.value.cpNewName)
+        if (app.util.isEmpty(e.detail.value.cpNewName)) {
+            that.showModal("请输入姓名");
+        } else if (app.util.isEmpty(e.detail.value.cpNewAge)) {
+            that.showModal("请输入年龄");
+        } else if (app.util.isEmpty(e.detail.value.cpNewGender)) {
+            that.showModal("请输入性别");
+        }
+        else {
+            return true
+        }
+    },
+    showModal: function (title) {
+        wx.showModal({
+            title: title,
+            //content: '请输入关心人的名字',
+            success: function (res) {
+                if (res.confirm) {
                     return false
                 }
-        },
+            }
+        })
+    },
     onLoad: function (options) {
         let that = this;
         console.log(" addDevice");

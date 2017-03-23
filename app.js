@@ -121,9 +121,11 @@ App({
 
 function getUserInfoSuccess(session, userInfo) {
   var app = getApp();
+  var tenantId = serverConfig.getTenantId();
+  console.log(tenantId);
   console.log('session:', session)
   console.log('userInfo: ', userInfo)
-  app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepUser$regist', { session: session, userInfo: userInfo }, (ret) => {
+  app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepUser$regist', { session: session, userInfo: userInfo,tenantId:tenantId }, (ret) => {
         console.log("注册接口成功");
         }, { loadingText: false });
 }

@@ -11,9 +11,16 @@ Page({
     },
     sleepZoneTap:function(){
         console.log("sleepZoneTap");
-     wx.navigateTo({
-      url: './addDevice'
-    })
+    //  wx.navigateTo({
+    //   url: './addDevice'
+    // })
+    wx.scanCode({
+        complete: (res) => {
+            console.log(res.result)
+            var result =  res.result.split("A");
+            console.log("A"+result[1]);
+        }
+        })
     },
     braceletTap:function(){
          console.log("braceletTap");

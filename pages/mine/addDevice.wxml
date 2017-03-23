@@ -13,8 +13,8 @@
     <input name="cpNewName" placeholder="请输入姓名" />
      <view class="section__title">cpNewAge</view>
     <input name="cpNewAge" placeholder="请输入年龄" />
-     <view class="section__title">cpNewGender</view>
-    <input name="cpNewGender" placeholder="请输入性别" />   
+     <view class="section__title">sex</view>
+    <input name="sex" placeholder="请输入性别" />   
   </view>
  
   <view class="btn-area">

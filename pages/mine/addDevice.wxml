@@ -1,26 +1,36 @@
 <view class="container">
-    
+    <view class="device-contain h-flex">
+      <view class="device-img">
+        <image  src="../../images/chanpin.png" class="device-img-item"></image>
+      </view>
+      <view class="v-flex device-info">
+        <text class="device-name">梧斯源睡眠检测仪</text>
+        <text class="device-id">A1100060</text>
+      </view>
+    </view>
+    <text class="person-text">该设备绑定的人</text>
+
 <form bindsubmit="formSubmit" bindreset="formReset">
 
   <view class="section">
-    <view class="section__title">deviceName</view>
-    <input name="deviceName" placeholder="please input here" />
-    <view class="section__title">devId</view>
-    <input name="devId" placeholder="please input here" />
-     <view class="section__title">deviceMac</view>
-    <input name="deviceMac" placeholder="please input here" />
+     <view class="h-flex section-item">
      <view class="section__title">cpNewName</view>
     <input name="cpNewName" placeholder="请输入姓名" />
+    </view>
+     <view class="h-flex section-item">
      <view class="section__title">cpNewAge</view>
     <input name="cpNewAge" placeholder="请输入年龄" />
+    </view>
+     <view class="h-flex section-item">
      <view class="section__title">sex</view>
     <input name="sex" placeholder="请输入性别" />   
+    </view>
   </view>
  
   <view class="btn-area">
-    <button formType="submit">Submit</button>
-    <button formType="reset">Reset</button>
+    <button formType="submit">绑定设备</button>
   </view>
 </form>
+
 
 </view>

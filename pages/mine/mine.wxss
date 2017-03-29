@@ -7,9 +7,9 @@ page{
   /*flex-flow: wrap;*/
   align-items: center;
   width: 100%;
-  /*background-image: url('/../../images/banner.jpg');*/
+  background-image: url('/../../images/banner1.png');
   background-size: 100% 100%;
-  height: 150px;
+  height: 200px;
   box-sizing: border-box;
 }
 .banner-img-box{
@@ -19,7 +19,6 @@ page{
 }
 .banner-img{
     width: 100%;
-    height: 150px;
 }
 .userinfo-space-top {
   width:100%;
@@ -36,15 +35,16 @@ page{
 
 .userinfo-avatar-c2 {
   padding: 2px;
-  width: 128rpx;
-  height: 128rpx;
+  margin-top:50px;
+  width: 140rpx;
+  height: 140rpx;
   background-color: rgba(255,255,255,.8);
   border-radius: 50%;
 }
 
 .userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
+  width: 140rpx;
+  height: 140rpx;
   margin: 0 auto;
   border-radius: 50%;
   opacity: 1;
@@ -52,16 +52,16 @@ page{
 }
 
 .userinfo-nickname {
-  flex: 2.5;
+  flex: 2;
   color: white;
 }
 
 .my-manage-item {
   background-color: white;
-  height: 50px;
+  height: 45px;
   padding: 0 8px;
-  margin-top:1px;
   position: relative;
+  border-top: 1px solid #1083bf;
 }
 .my-manage-item-icon-c-share {
   width: 35px;
@@ -74,8 +74,11 @@ page{
 .my-manage-item-icon-c{
   width:100%;
 }
-.my-manage-item-4{
+.my-manage-item-1,.my-manage-item-2{
     margin-top: 12px;
+}
+.my-manage-item-4,.my-manage-item-1{
+   border-bottom: 1px solid #1083bf;
 }
 .iconfont{
     font-size: 23px;
@@ -124,6 +127,7 @@ page{
 
 .my-manage-item-text {
   padding-left: 8px;
+  font-size: 16px;
   text-align: left;
-  color: rgb(0, 0, 0);
+  color: #333333;
 }

@@ -1,1 +1,49 @@
 /* pages/mine/addDevice.wxss */
+page{
+  background-image: url('/../../images/banner1.png');
+  background-size: 100% 120%;
+  background-position-y: -30px;
+  color: white;
+}
+.device-contain{
+    color:white;
+    padding-left: 15px;
+    padding-top: 30px;
+    padding-bottom:45px;
+}
+.device-img{
+    width:100px;
+    height:100px;
+}
+.device-img-item{
+    width:100%;
+    height:100%;
+}
+
+.device-info{
+   align-items: flex-start;
+   padding-left: 15px;
+}
+.device-id{
+    padding-top: 20px;
+}
+.person-text{
+    padding-left: 15px;
+}
+
+.section{
+    padding-left: 15px;
+    padding-top: 25px;
+}
+.section-item{
+    height: 40px;
+}
+.btn-area{
+    width:80%;
+    color:#09bb07;
+    margin:125px auto;
+}
+
+.btn-area button{
+    color:#09bb07;
+}

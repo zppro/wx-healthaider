@@ -7,24 +7,24 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#5b99ec",
+    "navigationBarBackgroundColor": "#0f79b5",
     "navigationBarTitleText": "",
-    "navigationBarTextStyle": "#5b99ec"
+    "navigationBarTextStyle": "#0f79b5"
   },
   "tabBar": {
-    "color": "#a9b7b7",
-    "selectedColor": "#5b99ec",
-    "borderStyle": "#5b99ec",
+    "color": "#777777",
+    "selectedColor": "#0f79b5",
+    "borderStyle": "#0f79b5",
     "list": [
       {
-        "selectedIconPath": "images/健康度.png",
-        "iconPath": "images/健康测试.png",
+        "selectedIconPath": "images/首页点击后.png",
+        "iconPath": "images/首页点击前.png",
         "pagePath": "pages/dashboard/index",
         "text": "健康"
       },
       {
-        "selectedIconPath": "images/我的(1).png",
-        "iconPath": "images/我的.png",
+        "selectedIconPath": "images/我的点击后.png",
+        "iconPath": "images/我的点击前.png",
         "pagePath": "pages/mine/mine",
         "text": "我的"
       }

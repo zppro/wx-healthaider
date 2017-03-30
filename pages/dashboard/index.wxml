@@ -1,3 +1,11 @@
+<view class="container">
+
+<view class="bg-img-box">
+<image class="bg-img" src="../../images/banner1.png"></image>
+<view class="contain-box">
+<block wx:if="{{deviceInfo.length<=0}}">
+</block>
+<block wx:else>
 <view class="show-table">
 </view>
 <view class="item-ul v-flex">
@@ -13,4 +21,10 @@
         <view class="item-ul-li"></view>
         <view class="item-ul-li"></view>
     </view>
+</view>
+</block>
+</view>
+</view>
+
+
 </view>

@@ -4,16 +4,79 @@ import keys from '../../config/keys.js'
 
 //获取应用实例
 var app = getApp()
+const date = new Date()
+const years = []
+const months = []
+const days = []
+
+for (let i = 1992; i <= date.getFullYear(); i++) {
+    years.push(i)
+}
+
+for (let i = 1; i <= 12; i++) {
+    months.push(i)
+}
+
+for (let i = 1; i <= 31; i++) {
+    days.push(i)
+}
 
 Page({
     data: {
         deviceInfo: {},
+        actionSheetHidden: true,
+        actionSheetSexItems: [
+            { bindtap: 'SetSex', txt: '男' },
+            { bindtap: 'SetSex', txt: '女' }
+        ],
+        menu: '',
+        sex:'',
     },
     //事件
+    bindSetSex:function(e){
+         var sexId = e.currentTarget.dataset.id
+         let deviceInfo = this.data.deviceInfo
+         let sex = this.data.sex
+         console.log('bindChange:', sexId)
+         if(sexId == 0){
+            deviceInfo.cpNewSex = 'MALE';
+            sex = '男'
+         }else{
+               deviceInfo.cpNewSex = 'FEMALE';
+               sex = '女'
+         }
+        this.setData({
+           deviceInfo:deviceInfo,
+           sex:sex,
+           actionSheetHidden: !this.data.actionSheetHidden
+        })
+        console.log(JSON.stringify(deviceInfo));
+    },
+    bindChange: function (e) {
+        const val = e.detail.value
+         console.log('bindChange:', e);
+        let year = this.data.year
+        let month = this.data.month
+        this.setData({
+            year: this.data.years[val[0]],
+            month: this.data.months[val[1]]
+        })
+        console.log('bindChange:', this.data);
+    },
+    sexTap: function () {
+        this.setData({
+            actionSheetHidden: !this.data.actionSheetHidden
+        })
+    },
+    sexchange: function () {
+        this.setData({
+            actionSheetHidden: !this.data.actionSheetHidden
+        })
+    },
     formSubmit: function (e) {
         var that = this
         let deviceInfo = this.data.deviceInfo
-        var tenantId =  app.config[keys.CONFIG_SERVER].getTenantId();
+        var tenantId = app.config[keys.CONFIG_SERVER].getTenantId();
         if (that.checkOut(e)) {
             console.log("e:", e.detail.value)
             deviceInfo = e.detail.value
@@ -27,10 +90,11 @@ Page({
                 itemList: ['确定绑定？'],
                 itemColor: '#f00',
                 success: function (res) {
-                    app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$addDevice', {deviceInfo: deviceInfo,session:app.globalData.session,tenantId:tenantId}, (ret) => {
+                    app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$addDevice', { deviceInfo: deviceInfo, session: app.globalData.session, tenantId: tenantId }, (ret) => {
                         console.log("设备添加接口成功");
                         console.log(ret);
                     }, { loadingText: false });
+                    //console.log(JSON.stringify(deviceInfo));
                 }
             })
         }

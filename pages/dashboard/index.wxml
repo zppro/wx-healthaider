@@ -14,7 +14,7 @@
       <block wx:else>
         <view class="show-table">
           <view class="show-table-text">睡眠得分</view>
-          <view class="item-ul  v-flex">
+          <view class="status-ul  v-flex">
             <view class="status-item h-flex">
               <text class="iconfont icon-iconfontyuandian icon-deep" />
               <text class="status-item-text">深睡</text>
@@ -28,7 +28,7 @@
               <text class="status-item-text">清醒</text>
             </view>
           </view>
-          <view class="status-score">
+          <view class="status-score h-flex">
             <block wx:if="{{deviceInfo.length>1}}">
               <view class="pre">
                 <text class="iconfont icon-arrowleft" />
@@ -62,7 +62,7 @@
               <text class="care-name">{{deviceInfo[0].name}}</text>
               <text class="care-text">我关心的人</text>
             </view>
-            <view class="more-info">
+            <view class="more-info" bindtap="showMoreInfo">
               <text class="more-text">查看更多</text>
               <text class="iconfont icon-arrowright icon-more"/>
             </view>

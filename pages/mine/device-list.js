@@ -7,6 +7,18 @@ Page({
          deviceInfo:[{name:'睡眠监测带',personName:'爸爸',id:'A1100065'},{name:'睡眠监测带',personName:'爸爸',id:'A1100065'}]
        // deviceInfo:[]
     },
+         sleepZoneTap: function () {
+        console.log("sleepZoneTap")
+        // wx.scanCode({
+        //     complete: (res) => {
+        //         console.log(res.result)
+        //          wx.navigateTo({
+        //             url: './addDevice?info='+res.result
+        //         })
+        //     }
+        //     })
+
+    },
     goToInfo:function(){
         console.log("go to");
     },

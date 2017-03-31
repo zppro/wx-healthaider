@@ -16,6 +16,18 @@ Page({
         sex: '',
     },
     //事件
+     sleepZoneTap: function () {
+        console.log("sleepZoneTap")
+        // wx.scanCode({
+        //     complete: (res) => {
+        //         console.log(res.result)
+        //          wx.navigateTo({
+        //             url: './addDevice?info='+res.result
+        //         })
+        //     }
+        //     })
+
+    },
     bindSetSex: function (e) {
         var sexId = e.currentTarget.dataset.id
         let deviceInfo = this.data.deviceInfo

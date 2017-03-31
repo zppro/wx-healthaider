@@ -23,14 +23,14 @@
       <text class="iconfont icon-mingcheng"/>
       <text class="section-item-text">昵称：</text>
      </view>
-    <input name="cpNewName" placeholder="例如：爸爸" />
+    <input placeholder-class="psection" name="cpNewName" placeholder="例如：爸爸" />
     </view>
      <view class="h-flex section-item section-item-2" bindtap="actionSheetTap">
      <view class="section__title">
      <text class="iconfont icon-nianling"/>
       <text class="section-item-text">年龄：</text>
      </view>
-    <input name="cpNewAge" placeholder="请输入年龄" />
+    <input placeholder-class="psection"  name="cpNewAge" placeholder="请输入年龄" />
     <!--<text wx-if="{{year==''}}">请输入出生年月</text>
     <text wx-else>{{year}}年{{month}}月</text>-->
 
@@ -40,7 +40,7 @@
       <text class="iconfont icon-xingbie1"/>
       <text class="section-item-text">性别：</text>
      </view>
-    <input name="sex" placeholder="请输入性别" value="{{sex}}"/>   
+    <input placeholder-class="psection"  name="sex" placeholder="请输入性别" value="{{sex}}"/>   
     </view>
       <view class="section-item section-item-4">
     </view>

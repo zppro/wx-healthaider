@@ -7,9 +7,9 @@
         <text>点击添加设备</text>
       </view>
       <block wx:for="{{deviceInfo}}" wx:for-index="idx" wx:for-item="device" wx:key="deviceKey">
-        <view class="device-list v-flex" bindtap="goToInfo" data-id="{{inx}}">
-          <view class="device-li-item h-flex">
-            <view class="device-img">
+        <view class="device-list v-flex" data-id="{{inx}}">
+          <view class="device-li-item h-flex" bindtap="sleepZoneTap">
+            <view class="device-img" bindtap="sleepZoneTap">
               <image src="../../images/chanpin.png"></image>
             </view>
             <view class="device-info v-flex">
@@ -17,7 +17,7 @@
               <text class="device-id">{{device.id}}</text>
               <text class="device-pname">{{device.personName}}</text>
             </view>
-            <view class="device-info-more">
+            <view class="device-info-more" bindtap="sleepZoneTap">
               <text class="iconfont icon-arrowright" />
             </view>
           </view>

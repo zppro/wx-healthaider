@@ -4,8 +4,8 @@ import keys from '../../config/keys.js'
 var app = getApp()
 Page({
     data: {
-        //deviceInfo: [{ name: '爸爸', gotoBedTime: '22:00', sleepTime: '9', deepSleepTime: '3' }]
-        deviceInfo:[]
+        deviceInfo: [{ name: '爸爸', gotoBedTime: '22:00', sleepTime: '9', deepSleepTime: '3' }]
+       // deviceInfo:[]
     },
     //事件
     setting: function () {
@@ -19,9 +19,9 @@ Page({
                         console.log("设备添加接口成功");
                         console.log(ret);
                     }, { loadingText: false });
-        // wx.navigateTo({
-        //             url: './addDevice?info=a0e6f855129fA1100123'
-        //         })
+        wx.navigateTo({
+                    url: './addDevice'
+                })
         // wx.scanCode({
         //     complete: (res) => {
         //         console.log(res.result)

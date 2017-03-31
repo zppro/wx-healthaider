@@ -3,7 +3,9 @@
     "pages/splash",
     "pages/dashboard/index",
     "pages/mine/mine",
-    "pages/mine/addDevice"
+    "pages/mine/addDevice",
+    "pages/mine/device-list",
+    "pages/mine/device-info"
   ],
   "window": {
     "backgroundTextStyle": "light",

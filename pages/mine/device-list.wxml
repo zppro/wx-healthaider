@@ -1,0 +1,28 @@
+<view class="container">
+  <view class="bg-img-box">
+    <image class="bg-img" src="../../images/banner.png"></image>
+    <view class="contain-box">
+      <view class="add-device-img">
+        <image src="../../images/tianjia.png"></image>
+        <text>点击添加设备</text>
+      </view>
+      <block wx:for="{{deviceInfo}}" wx:for-index="idx" wx:for-item="device" wx:key="deviceKey">
+        <view class="device-list v-flex" bindtap="goToInfo" data-id="{{inx}}">
+          <view class="device-li-item h-flex">
+            <view class="device-img">
+              <image src="../../images/chanpin.png"></image>
+            </view>
+            <view class="device-info v-flex">
+              <text class="device-name">{{device.name}}</text>
+              <text class="device-id">{{device.id}}</text>
+              <text class="device-pname">{{device.personName}}</text>
+            </view>
+            <view class="device-info-more">
+              <text class="iconfont icon-arrowright" />
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

@@ -1,30 +1,101 @@
 <view class="container">
-
-<view class="bg-img-box">
-<image class="bg-img" src="../../images/banner1.png"></image>
-<view class="contain-box">
-<block wx:if="{{deviceInfo.length<=0}}">
-</block>
-<block wx:else>
-<view class="show-table">
-</view>
-<view class="item-ul v-flex">
-    <view class="item-ul-ul h-flex">
-        <view class="item-ul-li"></view>
-        <view class="item-ul-li"></view>
+  <view class="bg-img-box">
+    <image class="bg-img" src="../../images/banner.png"></image>
+    <view class="contain-box">
+      <block wx:if="{{deviceInfo.length<=0}}">
+        <view class="bangding-button-box">
+          <text class="bangding-text">双击绑定设备</text>
+          <view class="bangding-button-img-box" bindtap="bangding">
+            <image src="../../images/dianji.png" class="bangding-button-img"></image>
+            <text class="weibangding-text">未绑定设备</text>
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="show-table">
+          <view class="show-table-text">睡眠得分</view>
+          <view class="item-ul  v-flex">
+            <view class="status-item h-flex">
+              <text class="iconfont icon-iconfontyuandian icon-deep" />
+              <text class="status-item-text">深睡</text>
+            </view>
+            <view class="status-item h-flex">
+              <text class="iconfont icon-iconfontyuandian icon-light" />
+              <text class="status-item-text">浅睡</text>
+            </view>
+            <view class="status-item h-flex">
+              <text class="iconfont icon-iconfontyuandian icon-week" />
+              <text class="status-item-text">清醒</text>
+            </view>
+          </view>
+          <view class="status-score">
+            <block wx:if="{{deviceInfo.length>1}}">
+              <view class="pre">
+                <text class="iconfont icon-arrowleft" />
+              </view>
+            </block>
+            <block wx:else>
+              <view class="pre"></view>
+            </block>
+            <view class="status-score-box">
+              <view class="status-score-image-box">
+                <image src="../../images/watch .png"></image>
+                <text class="status-score-text">75分</text>
+              </view>
+            </view>
+            <block wx:if="{{deviceInfo.length>1}}">
+              <view class="next">
+                <text class="iconfont icon-arrowright" />
+              </view>
+            </block>
+            <block wx:else>
+              <view class="next"></view>
+            </block>
+          </view>
+        </view>
+        <view class="item-ul v-flex">    
+          <view class="item-ul-li h-flex item-ul-li-personInfo">
+            <view class="item-headpic">
+              <image src="../../images/father.png"></image>
+            </view>
+            <view class="item-info v-flex">
+              <text class="care-name">{{deviceInfo[0].name}}</text>
+              <text class="care-text">我关心的人</text>
+            </view>
+            <view class="more-info">
+              <text class="more-text">查看更多</text>
+              <text class="iconfont icon-arrowright icon-more"/>
+            </view>
+          </view>
+          <view class="item-ul-li h-flex">
+            <view class="item">
+              <text class="iconfont icon-rushui"/>
+            </view>
+            <view class="item v-flex care-time">
+              <text class="care-time-text">入睡时间<text class="care-times">{{deviceInfo[0].gotoBedTime}}</text></text>
+              <text class="care-tip-text">早早睡觉有助于增强身体免疫力哦！</text>
+            </view>
+          </view>
+          <view class="item-ul-li h-flex">
+            <view class="item">
+             <text class="iconfont icon-shuimianshijian"/>
+            </view>
+            <view class="item care-time v-flex">
+              <text class="care-time-text">睡眠时间<text class="care-times">{{deviceInfo[0].deepSleepTime}}h</text></text>
+              <text class="care-tip-text">睡眠时间充足</text>
+            </view>
+          </view>
+           <view class="item-ul-li h-flex">
+            <view class="item">
+              <text class="iconfont icon-shendushuimian"/>
+            </view>
+            <view class="item care-time v-flex">
+            <text class="care-time-text">深度睡眠<text class="care-times">{{deviceInfo[0].sleepTime}}h</text></text>
+              <text class="care-tip-text">深度睡眠时间偏低，充足的深度睡眠时间才是好的睡眠保障！</text>
+            </view>
+          </view>
+        </view>
+      </block>
     </view>
-   <view class="item-ul-ul h-flex">
-        <view class="item-ul-li"></view>
-        <view class="item-ul-li"></view>
-    </view>
-     <view class="item-ul-ul h-flex">
-        <view class="item-ul-li"></view>
-        <view class="item-ul-li"></view>
-    </view>
-</view>
-</block>
-</view>
-</view>
-
-
+  </view>
 </view>

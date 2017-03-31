@@ -39,8 +39,11 @@ Page({
     //事件处理函数
     toIndex: function () {
         wx.switchTab({
-            url: '/pages/dashboard/index'
+           url: '/pages/dashboard/index'
         })
+        // wx.navigateTo({
+        //     url: '/pages/mine/device-info'
+        // })
     },
     onLoad: function (options) {
         console.log('splash onLoad ')

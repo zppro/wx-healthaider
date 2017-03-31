@@ -13,31 +13,36 @@ Page({
             { bindtap: 'SetSex', txt: '女' }
         ],
         menu: '',
-        sex: '',
+        sex:'',
     },
     //事件
-    bindSetSex: function (e) {
-        var sexId = e.currentTarget.dataset.id
-        let deviceInfo = this.data.deviceInfo
-        let sex = this.data.sex
-        console.log('bindChange:', sexId)
-        if (sexId == 0) {
+    gotoInfo:function(e){
+          wx.navigateTo({
+            url: '/pages/mine/device-info'
+        })
+    },
+    bindSetSex:function(e){
+         var sexId = e.currentTarget.dataset.id
+         let deviceInfo = this.data.deviceInfo
+         let sex = this.data.sex
+         console.log('bindChange:', sexId)
+         if(sexId == 0){
             deviceInfo.cpNewSex = 'MALE';
             sex = '男'
-        } else {
-            deviceInfo.cpNewSex = 'FEMALE';
-            sex = '女'
-        }
+         }else{
+               deviceInfo.cpNewSex = 'FEMALE';
+               sex = '女'
+         }
         this.setData({
-            deviceInfo: deviceInfo,
-            sex: sex,
-            actionSheetHidden: !this.data.actionSheetHidden
+           deviceInfo:deviceInfo,
+           sex:sex,
+           actionSheetHidden: !this.data.actionSheetHidden
         })
         console.log(JSON.stringify(deviceInfo));
     },
     bindChange: function (e) {
         const val = e.detail.value
-        console.log('bindChange:', e);
+         console.log('bindChange:', e);
         let year = this.data.year
         let month = this.data.month
         this.setData({
@@ -62,14 +67,9 @@ Page({
         var tenantId = app.config[keys.CONFIG_SERVER].getTenantId();
         if (that.checkOut(e)) {
             console.log("e:", e.detail.value)
-            var devId = deviceInfo.devId
-            var deviceMac = deviceInfo.deviceMac
             deviceInfo = e.detail.value
             deviceInfo.operator = 'add'
             deviceInfo.type = 'Mattress'
-            deviceInfo.devId = devId
-            deviceInfo.deviceMac = deviceMac
-            console.log("id:", devId);
             that.setData({
                 deviceInfo
             });
@@ -116,17 +116,6 @@ Page({
     },
     onLoad: function (options) {
         let that = this;
-        let deviceInfo = this.data.deviceInfo;
-
         console.log(" addDevice");
-        console.log(options);
-        var result = options.info.split("A");
-        console.log("A" + result[1]);
-        deviceInfo.devId = "A" + result[1];
-        deviceInfo.deviceMac = result[0]
-        //alert(result);
-        this.setData({
-            deviceInfo: deviceInfo
-        })
     }
 })

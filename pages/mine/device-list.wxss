@@ -1,0 +1,82 @@
+page{
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+.container{
+    width: 100%;
+    height: 100%;
+}
+.bg-img-box{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: -1;
+}
+.bg-img{
+    width: 100%;
+    height: 100%;
+}
+.contain-box{
+    position: absolute;
+    z-index: 9999;
+    top:10px;
+    width: 100%;
+    text-align: center;
+}
+.add-device-img{
+    width: 294rpx;
+    height: 294rpx;
+    margin: 30rpx auto;
+}
+.add-device-img image{
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+.add-device-img text{
+    float: left;
+    font-size:24rpx;
+    margin-top:-100rpx;
+    margin-left: 80rpx;
+}
+.device-lis{
+    width: 100%;
+}
+.device-li-item{
+    width: 100%;
+    height: 184rpx;
+    border-bottom: 1rpx solid white;
+}
+.device-img{
+    width:124rpx;
+    height: 124rpx;
+    padding-left: 30rpx;
+}
+.device-img image{
+    width: 100%;
+    height: 100%;
+}
+.device-info{
+    height: 124rpx;
+    align-items: flex-start;
+    padding-left: 30rpx;
+}
+.device-name{
+    font-size: 30rpx;
+    flex: 0.5;
+    padding-top: 10rpx;
+}
+.device-id{
+    font-size: 24rpx;
+    flex: 0.5;
+}
+.device-pname{
+    font-size: 24rpx;
+    color:#0c173d;
+    flex: 0.5;
+}
+.device-info-more{
+    flex: 2;
+    padding-left: 150px;
+}

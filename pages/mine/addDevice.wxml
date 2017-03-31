@@ -1,6 +1,6 @@
 <view class="container">
    <view  class="banner-img-box"bindtap="showModal">
-     <image class="banner-img" src="../../images/banner1.png">
+     <image class="banner-img" src="../../images/banner.png">
     </image>
     </view>
     <view class="allInfo">
@@ -10,7 +10,7 @@
       </view>
       <view class="v-flex device-info">
         <text class="device-name">梧斯源睡眠检测仪</text>
-        <text class="device-id">A1100060</text>
+        <text class="device-id">{{deviceInfo.devId}}</text>
       </view>
     </view>
     <text class="person-text">该设备绑定的人</text>

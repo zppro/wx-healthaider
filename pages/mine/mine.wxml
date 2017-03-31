@@ -1,7 +1,7 @@
 <view class="container">
   <view bindtap="bindViewTap" class="userinfo">
    <view  class="banner-img-box">
-     <image class="banner-img" src="../../images/banner1.png">
+     <image class="banner-img" src="../../images/banner.png">
     </image>
     </view>
         <!--<view class="userinfo-space-top">
@@ -23,8 +23,9 @@
         <view class="verticle-middle"></view>
       </view>
       <text class="my-manage-item-text">睡眠带</text>
+      <block wx:if="{{deviceInfo.length<=0}}">
       <text class="iconfont check-out my-manage-item-icon">未绑定<text class="iconfont icon-next my-manage-item-icon"/></text>
-      
+      </block>
     </view>
   </view>
    <!--<view class="h-flex my-manage-item" bindtap="braceletTap">

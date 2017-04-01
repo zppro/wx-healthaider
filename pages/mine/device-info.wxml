@@ -1,8 +1,4 @@
 <view class="container">
-  <view class="banner-img-box" bindtap="showModal">
-    <image class="banner-img" src="../../images/banner.png">
-    </image>
-  </view>
   <view class="allInfo">
     <view class="device-contain h-flex">
       <view class="device-img">
@@ -10,10 +6,10 @@
       </view>
       <view class="v-flex device-info">
         <text class="device-name">梧斯源睡眠检测仪</text>
-        <text class="device-id">A1100060</text>
+        <text class="device-id">{{deviceInfo.deviceId}}</text>
       </view>
     </view>
-    <button class="cancle-bangding">取消绑定</button>
+    <button class="cancle-bangding" bindtap="removeDevice">取消绑定</button>
     <text class="person-text">该设备绑定的人</text>
     <form bindsubmit="formSubmit" bindreset="formReset">
       <view class="section">
@@ -30,27 +26,26 @@
             <text class="iconfont icon-mingcheng" />
             <text class="section-item-text">昵称：</text>
           </view>
-          <input name="cpNewName" placeholder="例如：爸爸" />
+          <input name="cpName" placeholder="例如：爸爸" value="{{deviceInfo.memberName}}"/>
         </view>
         <view class="h-flex section-item section-item-2" bindtap="actionSheetTap">
           <view class="section__title">
             <text class="iconfont icon-nianling" />
             <text class="section-item-text">年龄：</text>
           </view>
-          <input name="cpNewAge" placeholder="请输入年龄" />
+          <input name="cpAge" placeholder="请输入年龄" value="{{deviceInfo.age}}"/>
         </view>
         <view class="h-flex section-item section-item-3" bindtap="sexTap">
           <view class="section__title">
             <text class="iconfont icon-xingbie1" />
             <text class="section-item-text">性别：</text>
           </view>
-          <input name="sex" placeholder="请输入性别" value="{{sex}}" />
+          <input disabled="false" name="sex" placeholder="请输入性别" value="{{deviceInfo.sex=='F'?'女':'男'}}" />
         </view>
         <view class="section-item section-item-4">
         </view>
       </view>
       <view class="btn-area h-flex">
-        <button formType="submit" class="button-box">取消</button>
         <button formType="submit" >保存</button>
       </view>
     </form>
@@ -61,4 +56,6 @@
       <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
     </action-sheet>
   </view>
+     <image class="banner-img" src="../../images/banner.png">
+    </image> 
 </view>

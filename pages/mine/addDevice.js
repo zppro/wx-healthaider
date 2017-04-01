@@ -34,10 +34,8 @@ Page({
         let sex = this.data.sex
         console.log('bindChange:', sexId)
         if (sexId == 0) {
-            deviceInfo.cpNewSex = 'MALE';
             sex = '男'
         } else {
-            deviceInfo.cpNewSex = 'FEMALE';
             sex = '女'
         }
         this.setData({
@@ -93,6 +91,9 @@ Page({
                     app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$addDevice', { deviceInfo: deviceInfo, session: app.globalData.session, tenantId: tenantId }, (ret) => {
                         console.log("设备添加接口成功");
                         console.log(ret);
+                        wx.switchTab({
+                            url: '../dashboard/index'
+                         })
                     }, { loadingText: false });
                     //console.log(JSON.stringify(deviceInfo));
                 }

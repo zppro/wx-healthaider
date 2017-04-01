@@ -4,36 +4,46 @@ import keys from '../../config/keys.js'
 var app = getApp()
 Page({
     data: {
-         deviceInfo:[{name:'睡眠监测带',personName:'爸爸',id:'A1100065'},{name:'睡眠监测带',personName:'爸爸',id:'A1100065'}]
-       // deviceInfo:[]
+        // deviceInfo:[{name:'睡眠监测带',personName:'爸爸',id:'A1100065'},{name:'睡眠监测带',personName:'爸爸',id:'A1100065'}]
+       deviceInfo:[]
     },
-         sleepZoneTap: function () {
-        console.log("sleepZoneTap")
-        // wx.scanCode({
-        //     complete: (res) => {
-        //         console.log(res.result)
-        //          wx.navigateTo({
-        //             url: './addDevice?info='+res.result
-        //         })
-        //     }
-        //     })
-
-    },
-    goToInfo:function(){
-        console.log("go to");
-    },
-    bangding:function(){//扫描
-    wx.scanCode({
-        complete: (res) => {
-            console.log(res.result)
-            var result =  res.result.split("A");
-            console.log("A"+result[1]);
-        }
+    gotoDetails:function(e){
+        console.log(e);
+        var id = e.currentTarget.dataset.id
+          wx.navigateTo({
+            url: '../mine/device-info?id='+id
         })
     },
-    onLoad: function (options) {
+     addDevice: function () {
+        console.log("sleepZoneTap")
         let deviceInfo = this.data.deviceInfo
+        wx.scanCode({
+            success: (res) => {
+                console.log(res.result)
+                 wx.navigateTo({
+                    url: '../mine/addDevice?info='+res.result
+                })
+            },
+            })
+    },
+    onLoad: function (options) {
+        let that = this
+        let deviceInfo = this.data.deviceInfo
+        var tenantId = app.config[keys.CONFIG_SERVER].getTenantId();
         console.log("device list");
-        console.log(deviceInfo);
+        app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getAttachDevice', { session: app.globalData.session,tenantId:tenantId }, (ret) => {
+            console.log("设备添加接口成功");
+            console.log(ret);
+                 if(ret.ret.ret =='null'){
+                that.setData({
+                deviceInfo: []
+            })
+            }else{
+            that.setData({
+                deviceInfo: ret.ret.ret
+            })
+            }
+        }, { loadingText: false });
+        console.log("get:",deviceInfo);
     }
 })

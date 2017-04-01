@@ -65,7 +65,7 @@ page{
 }
 .device-name{
     font-size: 30rpx;
-    flex: 0.5;
+    flex:1;
     padding-top: 10rpx;
 }
 .device-id{
@@ -78,6 +78,5 @@ page{
     flex: 0.5;
 }
 .device-info-more{
-    flex: 2;
-    padding-left: 150px;
+    padding-left: 130px;
 }

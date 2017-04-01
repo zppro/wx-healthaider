@@ -26,6 +26,9 @@
       <block wx:if="{{deviceInfo.length<=0}}">
       <text class="iconfont check-out my-manage-item-icon">未绑定<text class="iconfont icon-next my-manage-item-icon"/></text>
       </block>
+        <block wx:else>
+      <text class="iconfont check-out my-manage-item-icon">{{deviceInfo.length}}<text class="iconfont icon-next my-manage-item-icon"/></text>
+      </block>
     </view>
   </view>
    <!--<view class="h-flex my-manage-item" bindtap="braceletTap">

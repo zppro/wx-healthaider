@@ -42,7 +42,7 @@ Page({
            url: '/pages/dashboard/index'
         })
         // wx.navigateTo({
-        //     url: '/pages/mine/device-info'
+        //     url: '/pages/mine/addDevice'
         // })
     },
     onLoad: function (options) {

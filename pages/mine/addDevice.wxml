@@ -40,7 +40,8 @@
       <text class="iconfont icon-xingbie1"/>
       <text class="section-item-text">性别：</text>
      </view>
-    <input placeholder-class="psection"  name="sex" placeholder="请输入性别" value="{{sex}}"/>   
+    <input placeholder-class="psection"  name="sex" placeholder="请输入性别" value="{{sex}}" disabled="false"/> 
+    <text class="iconfont icon-arrowright icon-more" />  
     </view>
       <view class="section-item section-item-4">
     </view>

@@ -1,0 +1,28 @@
+<view class="container">
+
+    
+    <view class="contain-box">
+      <view class="add-device-img" bindtap="addDevice">
+        <image src="../../images/tianjia.png"></image>
+        <text>点击添加设备</text>
+      </view>
+      <block wx:for="{{deviceInfo}}" wx:for-index="idx" wx:for-item="device" wx:key="deviceKey">
+        <view class="device-list v-flex" data-id="{{inx}}">
+          <view class="device-li-item h-flex" bindtap="gotoDetails" data-id="{{device.deviceId}}">
+            <view class="device-img">
+              <image src="../../images/chanpin.png"></image>
+            </view>
+            <view class="device-info v-flex">
+              <text class="device-name">梧斯源睡眠检测仪</text>
+              <text class="device-id">{{device.deviceId}}</text>
+              <text class="device-pname">{{device.memberName}}</text>
+            </view>
+            <view class="device-info-more" bindtap="sleepZoneTap">
+              <text class="iconfont icon-arrowright" />
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+    <image class="bg-img" src="../../images/banner.png"></image>
+</view>

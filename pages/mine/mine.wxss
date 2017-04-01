@@ -1,0 +1,136 @@
+page{
+  background-color: #efefef;
+}
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  /*flex-flow: wrap;*/
+  align-items: center;
+  width: 100%;
+  /*background-image: url('/../../images/banner.jpg');*/
+  background-size: 100% 100%;
+  height:200px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.banner-img-box{
+    width: 100%;
+    display: flex;
+    height: 10px;
+}
+.banner-img{
+    width: 100%;
+    height: 200px;
+}
+.userinfo-space-top {
+  width:100%;
+  text-align: right;
+}
+.icon-iconshezhi01{
+    margin-right:25px;
+    color:white;
+    font-size: 13px;
+}
+.userinfo-avatar-c {
+  flex: 5;
+}
+.userinfo-avatar-c2 {
+  padding: 2px;
+  margin-top: 45px;
+  width: 140rpx;
+  height: 140rpx;
+  background-color: rgba(255,255,255,.8);
+  border-radius: 50%;
+}
+
+.userinfo-avatar {
+  width: 140rpx;
+  height: 140rpx;
+  margin: 0 auto;
+  border-radius: 50%;
+  opacity: 1;
+  vertical-align: middle;
+}
+
+.userinfo-nickname {
+  flex: 2;
+  color: white;
+}
+
+.my-manage-item {
+  background-color: white;
+  height: 45px;
+  padding: 0 8px;
+  position: relative;
+  border-top: 1px solid #1083bf;
+}
+.my-manage-item-icon-c-share {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  text-align: center;
+  display: inline-block;
+  color: white;
+}
+.my-manage-item-icon-c{
+  width:100%;
+}
+.my-manage-item-1,.my-manage-item-2{
+    margin-top: 15px;
+}
+.my-manage-item-4,.my-manage-item-1{
+   border-bottom: 1px solid #1083bf;
+}
+.iconfont{
+    font-size: 23px;
+}
+.icon-shuimian{
+    color:#4e8aee;
+}
+.check-out{
+   color: rgb(114,114,114);
+   font-size: 15px;
+   padding:3px 6px 0 0;
+   float: right;
+}
+
+.icon-shouhuan{
+    color:#fd9438;
+}
+.icon-qita{
+    color:#1bbd2a;
+}
+.icon-weibiaoti-,.icon-qingchuhuancun,.icon-yinsishuoming,.icon-ruheshiyong{
+    color:#1082bf;
+    font-size: 35px;
+}
+.my-manage-item-icon-c1 {
+  background-color: #7d7dfa;
+}
+
+.my-manage-item-icon-c2 {
+  background-color: #ec9401;
+}
+
+.my-manage-item-icon-c3 {
+  background-color: #32b16c;
+}
+
+.my-manage-item-icon-c4 {
+  background-color: #f00;
+}
+
+.my-manage-item-icon-c5 {
+  background-color: #61cbfe;
+}
+
+.my-manage-item-icon {
+  vertical-align: middle;
+}
+
+.my-manage-item-text {
+  padding-left: 8px;
+  font-size: 16px;
+  text-align: left;
+  color: #333333;
+}

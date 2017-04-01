@@ -1,0 +1,61 @@
+<view class="container">
+  <view class="allInfo">
+    <view class="device-contain h-flex">
+      <view class="device-img">
+        <image src="../../images/chanpin.png" class="device-img-item"></image>
+      </view>
+      <view class="v-flex device-info">
+        <text class="device-name">梧斯源睡眠检测仪</text>
+        <text class="device-id">{{deviceInfo.deviceId}}</text>
+      </view>
+    </view>
+    <button class="cancle-bangding" bindtap="removeDevice">取消绑定</button>
+    <text class="person-text">该设备绑定的人</text>
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <view class="section">
+        <view class="h-flex section-item section-item-1 section-head">
+          <view class="section__title ">
+            <text class="section-item-head-text">头像：</text>
+          </view>
+          <view class="head">
+            <image src="../../images/father.png"></image>
+          </view>
+        </view>
+        <view class="h-flex section-item section-item-1">
+          <view class="section__title">
+            <text class="iconfont icon-mingcheng" />
+            <text class="section-item-text">昵称：</text>
+          </view>
+          <input name="cpName" placeholder="例如：爸爸" value="{{deviceInfo.memberName}}"/>
+        </view>
+        <view class="h-flex section-item section-item-2" bindtap="actionSheetTap">
+          <view class="section__title">
+            <text class="iconfont icon-nianling" />
+            <text class="section-item-text">年龄：</text>
+          </view>
+          <input name="cpAge" placeholder="请输入年龄" value="{{deviceInfo.age}}"/>
+        </view>
+        <view class="h-flex section-item section-item-3" bindtap="sexTap">
+          <view class="section__title">
+            <text class="iconfont icon-xingbie1" />
+            <text class="section-item-text">性别：</text>
+          </view>
+          <input disabled="false" name="sex" placeholder="请输入性别" value="{{deviceInfo.sex=='F'?'女':'男'}}" />
+        </view>
+        <view class="section-item section-item-4">
+        </view>
+      </view>
+      <view class="btn-area h-flex">
+        <button formType="submit" >保存</button>
+      </view>
+    </form>
+    <action-sheet hidden="{{actionSheetHidden}}" bindchange="sexchange" class="action-sheet-box">
+      <block wx:for="{{actionSheetSexItems}}">
+        <action-sheet-item bindtap="bind{{item.bindtap}}" data-id="{{index}}">{{item.txt}}</action-sheet-item>
+      </block>
+      <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+    </action-sheet>
+  </view>
+     <image class="banner-img" src="../../images/banner.png">
+    </image> 
+</view>

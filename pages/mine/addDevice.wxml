@@ -1,0 +1,72 @@
+<view class="container">
+   <view  class="banner-img-box"bindtap="showModal">
+     <image class="banner-img" src="../../images/banner.png">
+    </image>
+    </view>
+    <view class="allInfo">
+     <view class="device-contain h-flex">
+      <view class="device-img">
+        <image  src="../../images/chanpin.png" class="device-img-item"></image>
+      </view>
+      <view class="v-flex device-info">
+        <text class="device-name">梧斯源睡眠检测仪</text>
+        <text class="device-id">{{deviceInfo.devId}}</text>
+      </view>
+    </view>
+    <text class="person-text">该设备绑定的人</text>
+
+<form bindsubmit="formSubmit" bindreset="formReset">
+
+  <view class="section">
+     <view class="h-flex section-item section-item-1">
+     <view class="section__title">
+      <text class="iconfont icon-mingcheng"/>
+      <text class="section-item-text">昵称：</text>
+     </view>
+    <input placeholder-class="psection" name="cpNewName" placeholder="例如：爸爸" />
+    </view>
+     <view class="h-flex section-item section-item-2" bindtap="actionSheetTap">
+     <view class="section__title">
+     <text class="iconfont icon-nianling"/>
+      <text class="section-item-text">年龄：</text>
+     </view>
+    <input placeholder-class="psection"  name="cpNewAge" placeholder="请输入年龄" />
+    <!--<text wx-if="{{year==''}}">请输入出生年月</text>
+    <text wx-else>{{year}}年{{month}}月</text>-->
+
+    </view>
+     <view class="h-flex section-item section-item-3" bindtap="sexTap">
+     <view class="section__title">
+      <text class="iconfont icon-xingbie1"/>
+      <text class="section-item-text">性别：</text>
+     </view>
+    <input placeholder-class="psection"  name="sex" placeholder="请输入性别" value="{{sex}}" disabled="false"/> 
+    <text class="iconfont icon-arrowright icon-more" />  
+    </view>
+      <view class="section-item section-item-4">
+    </view>
+  </view>
+ 
+  <view class="btn-area">
+    <button formType="submit">绑定设备</button>
+  </view>
+</form>
+<action-sheet hidden="{{actionSheetHidden}}"bindchange="sexchange" class="action-sheet-box">
+    <block wx:for="{{actionSheetSexItems}}">
+        <action-sheet-item bindtap="bind{{item.bindtap}}" data-id="{{index}}">{{item.txt}}</action-sheet-item>
+    </block>
+    <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+</action-sheet>
+<!--<action-sheet hidden="{{actionSheetHidden}}" bindtap="actionSheetbindchange" class = "action-sheet-box"  style=" height: 200px;">
+  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 200px;" value="{{value}}" bindchange="bindChange">
+    <picker-view-column>
+      <view wx:for="{{years}}" style="line-height: 50px;padding-left:50px;">{{item}}年</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{months}}" style="line-height: 50px;padding-left:50px;">{{item}}月</view>
+    </picker-view-column>
+  </picker-view>
+   <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+</action-sheet>-->
+</view>
+</view>

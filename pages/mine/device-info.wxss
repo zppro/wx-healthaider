@@ -1,0 +1,133 @@
+/* pages/mine/addDevice.wxss */
+page{
+  width: 100%;
+  height: 100%;
+  color: white;
+  background-color: #efefef;
+}
+.container{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.banner-img{
+    width: 100%;
+    height: 100%;
+}
+.classname{
+    position: absolute;
+    top:10px;
+}
+.allInfo{
+    position: absolute;
+    top:10px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.device-contain{
+    color:white;
+    padding-left: 15px;
+    padding-top:20px;
+   
+}
+.device-img{
+    width:120rpx;
+    height:120rpx;
+}
+.device-img-item{
+    width:100%;
+    height:100%;
+    
+}
+
+.device-info{
+   align-items: flex-start;
+   padding-left: 20rpx;
+   font-size: 30rpx;
+}
+.device-id{
+    padding-top: 22rpx;
+}
+.cancle-bangding{
+    width: 250rpx;
+    color:#666666;
+    line-height: 75rpx;
+    height: 75rpx;
+    margin-right: 40rpx;
+    margin-bottom: 90rpx;    
+}
+.person-text{
+    padding-left: 30rpx;
+    font-size: 30rpx;
+}
+
+.section{
+    padding-top: 25px;
+}
+.section-item{
+    height: 40px;
+}
+.section-head{
+    height:120rpx;
+}
+.head{
+    width: 100rpx;
+    height: 100rpx;
+    background: #cccccc;
+    margin-left: 450rpx;
+}
+.head image{
+    width: 80%;
+    height: 80%;
+    margin:10rpx 10rpx;
+}
+.section-item-head-text{
+    height: 120rpx;
+    padding-left:48rpx;
+    font-size: 30rpx;
+}
+
+
+.section-item-1{
+border-top: 1px solid #1082bf;
+}
+.section-item-2{
+border-top: 1px solid #1082bf;
+}
+.section-item-3{
+   border-top: 1px solid #1082bf;
+}
+.section-item-4{
+   border-top: 1px solid #1082bf;
+}
+.iconfont{
+    font-size: 30px;
+    padding-left: 15px;
+    top: 40px;
+}
+.section-item-text{
+    font-size: 20px;
+}
+.btn-area{
+    width:80%;
+    color:#09bb07;
+    margin:80px auto;
+}
+
+.btn-area button{
+    color:#09bb07;
+    width:100%;
+    height: 74rpx;
+    line-height: 74rpx;
+    margin: 15rpx;
+}
+.action-sheet-box{
+    color:black;
+}
+.picker-view-column{
+    padding-left: 50px;
+}
+.button-box{
+  color:#666666 !important;
+}

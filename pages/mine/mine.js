@@ -4,8 +4,7 @@ import keys from '../../config/keys.js'
 var app = getApp()
 Page({
     data: {
-         //deviceInfo: [{ name: '爸爸', gotoBedTime: '22:00', sleepTime: '9', deepSleepTime: '3' }]
-        deviceInfo: []
+        attachedDeviceNumbers:''
     },
     //事件
     setting: function () {
@@ -59,30 +58,24 @@ Page({
         console.log("downLoadTap");
     },
     onShow: function (options) {
-        let that = this;
-        console.log(" onLoad mine");
-        app.getUserInfo(function (userInfo) {
-            //更新数据
-            that.setData({
-                userInfo: userInfo
-            })
-        })
-        app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getAttachDevice', { session: app.globalData.session }, (ret) => {
-            console.log("设备添加接口成功");
-            console.log(ret);
-            if (ret.ret.ret == 'null') {
-                that.setData({
-                    deviceInfo: []
-                })
-            } else {
-                that.setData({
-                    deviceInfo: ret.ret.ret
-                })
-            }
-        }, { loadingText: false });
+        this.getDeviceNumbers();
     },
-    onLoad: function (options) {
+    getDeviceNumbers:function(){
         let that = this;
+         console.log("getDeviceNumbers");
+        wx.getStorage({
+            key: 'attachedDeviceNumbers',
+            success: function (res) {
+                console.log("getDeviceNumbers:",res.data)
+                that.setData({
+                    attachedDeviceNumbers:res.data
+                })
+            }
+        })
+    }
+    ,
+    onLoad: function (options) {
+        let that = this;    
         console.log(" onLoad mine");
         app.getUserInfo(function (userInfo) {
             //更新数据
@@ -90,18 +83,6 @@ Page({
                 userInfo: userInfo
             })
         })
-        app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getAttachDevice', { session: app.globalData.session }, (ret) => {
-            console.log("设备添加接口成功");
-            console.log(ret);
-            if (ret.ret.ret == 'null') {
-                that.setData({
-                    deviceInfo: []
-                })
-            } else {
-                that.setData({
-                    deviceInfo: ret.ret.ret
-                })
-            }
-        }, { loadingText: false });
+       this.getDeviceNumbers();
     }
 })

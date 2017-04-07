@@ -23,11 +23,11 @@
         <view class="verticle-middle"></view>
       </view>
       <text class="my-manage-item-text">睡眠带</text>
-      <block wx:if="{{deviceInfo.length<=0}}">
+      <block wx:if="{{attachedDeviceNumbers<=0}}">
       <text class="iconfont check-out my-manage-item-icon">未绑定<text class="iconfont icon-next my-manage-item-icon"/></text>
       </block>
         <block wx:else>
-      <text class="iconfont check-out my-manage-item-icon">{{deviceInfo.length}}<text class="iconfont icon-next my-manage-item-icon"/></text>
+      <text class="iconfont check-out my-manage-item-icon">{{attachedDeviceNumbers}}<text class="iconfont icon-next my-manage-item-icon"/></text>
       </block>
     </view>
   </view>

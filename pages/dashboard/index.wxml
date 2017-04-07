@@ -69,33 +69,30 @@
           <view class="item">
             <text class="iconfont icon-rushui" />
           </view>
-          <view class="item v-flex care-time">
-            <text class="care-time-text">入睡时间
-              <text class="care-times">{{attachedDevices[0].sleepStatus.fallAsleepTime}}</text>
-            </text>
-            <text class="care-tip-text">早早睡觉有助于增强身体免疫力哦！</text>
+          <view class="item care-time">
+            <text class="care-time-text">入睡时间</text>
+            <text class="care-times">{{attachedDevices[0].sleepStatus.fallAsleepTime}}</text>
+            <!--<text class="care-tip-text">早早睡觉有助于增强身体免疫力哦！</text>-->
           </view>
         </view>
         <view class="item-ul-li h-flex">
           <view class="item">
             <text class="iconfont icon-shuimianshijian" />
           </view>
-          <view class="item care-time v-flex">
-            <text class="care-time-text">睡眠时间
-              <text class="care-times">{{attachedDevices[0].sleepStatus.sleepTime}}h</text>
-            </text>
-            <text class="care-tip-text">睡眠时间充足</text>
+          <view class="item care-time">
+            <text class="care-time-text">睡眠时间</text>
+            <text class="care-times">{{attachedDevices[0].sleepStatus.sleepTime}}h</text>
+            <!--<text class="care-tip-text">睡眠时间充足</text>-->
           </view>
         </view>
         <view class="item-ul-li h-flex">
           <view class="item">
             <text class="iconfont icon-shendushuimian" />
           </view>
-          <view class="item care-time v-flex">
-            <text class="care-time-text">深度睡眠
-              <text class="care-times">{{attachedDevices[0].sleepStatus.deepSleepTime}}h</text>
-            </text>
-            <text class="care-tip-text">深度睡眠时间偏低，充足的深度睡眠时间才是好的睡眠保障！</text>
+          <view class="item care-time">
+            <text class="care-time-text">深度睡眠</text>
+             <text class="care-times">{{attachedDevices[0].sleepStatus.deepSleepTime}}h</text>
+            <!--<text class="care-tip-text">深度睡眠时间偏低，充足的深度睡眠时间才是好的睡眠保障！</text>-->
           </view>
         </view>
       </view>

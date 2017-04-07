@@ -4,8 +4,8 @@ import keys from '../../config/keys.js'
 var app = getApp()
 Page({
     data: {
-        //deviceInfo: [{ memberName: '爸爸', sleepStatus:{fallAsleepTime:'22:00',sleepTime:'9',deepSleepTime:'3',evalution:'75'},gotoBedTime: '22:00', sleepTime: '9', deepSleepTime: '3' }, { name: '爸爸', gotoBedTime: '22:00', sleepTime: '9', deepSleepTime: '3' }]
-        deviceInfo: []
+        attachedDevices: [{ memberName: '爸爸', sleepStatus: { fallAsleepTime: '22:00', sleepTime: '9', deepSleepTime: '3', evalution: '75' }, gotoBedTime: '22:00', sleepTime: '9', deepSleepTime: '3' }]
+        // deviceInfo: []
     },
     showMoreInfo: function () {
         console.log("showMoreInfo");
@@ -33,15 +33,18 @@ Page({
         app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getAttachDevice', { session: app.globalData.session }, (attachedDevices) => {
             console.log("getAttachedDevices成功");
             console.log(attachedDevices);
-             that.setData({
-                    attachedDevices: attachedDevices
-                })
+            that.setData({
+                attachedDevices: attachedDevices
+            })
+            wx.setStorage({
+                key: "attachedDeviceNumbers",
+                data: attachedDevices.length
+            })
         }, { loadingText: false });
     },
     onLoad: function (options) {
         let that = this
         console.log("index")
         this.getAttachedDevices()
-
     }
 })

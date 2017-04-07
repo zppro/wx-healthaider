@@ -12,8 +12,8 @@ Page({
     },
     sleepZoneTap: function () {
         console.log("sleepZoneTap")
-        let deviceInfo = this.data.deviceInfo
-        if (deviceInfo.length <= 0) {
+        var attachedDeviceNumbers = this.data.attachedDeviceNumbers
+        if (attachedDeviceNumbers <= 0) {
             wx.scanCode({
                 success: (res) => {
                     console.log(res.result)

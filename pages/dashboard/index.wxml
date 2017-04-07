@@ -38,7 +38,10 @@
           <view class="status-score-box">
             <view class="status-score-image-box">
               <image src="../../images/watch .png"></image>
-              <text class="status-score-text">{{attachedDevices[0].sleepStatus.evalution}}分</text>
+              <view class="h-flex status-score-text">
+              <text>{{attachedDevices[0].sleepStatus.evalution}}</text>
+              <text class="fen">分</text>
+              </view>
             </view>
           </view>
           <block wx:if="{{attachedDevices.length>1}}">
@@ -71,8 +74,13 @@
           </view>
           <view class="item care-time">
             <text class="care-time-text">入睡时间</text>
+            <block wx:if="{{attachedDevices[0].sleepStatus.fallAsleepTime == 0}}">
+             <text class="care-times">--</text>
+            </block>
+            <block wx:else>
             <text class="care-times">{{attachedDevices[0].sleepStatus.fallAsleepTime}}</text>
             <!--<text class="care-tip-text">早早睡觉有助于增强身体免疫力哦！</text>-->
+            </block>
           </view>
         </view>
         <view class="item-ul-li h-flex">
@@ -81,7 +89,8 @@
           </view>
           <view class="item care-time">
             <text class="care-time-text">睡眠时间</text>
-            <text class="care-times">{{attachedDevices[0].sleepStatus.sleepTime}}h</text>
+            <text class="care-times">{{attachedDevices[0].sleepStatus.sleepTime}}</text>
+            <text class="h">h</text>
             <!--<text class="care-tip-text">睡眠时间充足</text>-->
           </view>
         </view>
@@ -91,7 +100,8 @@
           </view>
           <view class="item care-time">
             <text class="care-time-text">深度睡眠</text>
-             <text class="care-times">{{attachedDevices[0].sleepStatus.deepSleepTime}}h</text>
+             <text class="care-times">{{attachedDevices[0].sleepStatus.deepSleepTime}}</text>
+             <text class="h">h</text>
             <!--<text class="care-tip-text">深度睡眠时间偏低，充足的深度睡眠时间才是好的睡眠保障！</text>-->
           </view>
         </view>

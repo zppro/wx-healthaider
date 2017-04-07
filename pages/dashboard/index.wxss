@@ -118,8 +118,8 @@ page {
 .status-score-text {
   float: left;
   font-size: 36px;
-  margin-top: -120px;
-  margin-left: 75px;
+  margin-top: -240rpx;
+  margin-left: 170rpx;
 }
 
 .item-ul {
@@ -189,12 +189,27 @@ page {
 }
 
 .care-times {
-  font-size: 28rpx;
+  font-size: 33rpx;
   color: white;
-  padding-left: 100rpx;
+  padding-left: 400rpx;
+  font-weight: bold;
+  letter-spacing: 10rpx;
+  align-items: flex-end;
 }
 
 .care-tip-text {
   font-size: 20rpx;
   color: #064177;
+}
+.h{
+  font-size: 25rpx;
+}
+.icon-rushui,.icon-shuimianshijian,.icon-shendushuimian{
+  width:80rpx;
+  display: block;
+  padding-top:10rpx;
+}
+.fen{
+  font-size: 30rpx;
+  padding-top:20rpx
 }

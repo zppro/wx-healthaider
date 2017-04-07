@@ -5,7 +5,7 @@ var app = getApp()
 Page({
     data: {
         //deviceInfo: [{ memberName: '爸爸', sleepStatus:{fallAsleepTime:'22:00',sleepTime:'9',deepSleepTime:'3',evalution:'75'},gotoBedTime: '22:00', sleepTime: '9', deepSleepTime: '3' }, { name: '爸爸', gotoBedTime: '22:00', sleepTime: '9', deepSleepTime: '3' }]
-         deviceInfo: []
+        deviceInfo: []
     },
     showMoreInfo: function () {
         console.log("showMoreInfo");
@@ -26,41 +26,22 @@ Page({
         })
     },
     onShow: function (options) {
+        // app.gOnShowFlags[keys.G_ON_SHOW_NEW_ATTACH_DEVICE] && this.getAttachedDevices()
+    },
+    getAttachedDevices: function () {
         let that = this
-        let deviceInfo = this.data.deviceInfo
-        console.log("index");
-        app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getAttachDevice', { session: app.globalData.session }, (ret) => {
-            console.log("设备添加接口成功");
-            console.log(ret.ret);
-            if (ret.ret.ret == 'null') {
-                that.setData({
-                    deviceInfo: []
+        app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getAttachDevice', { session: app.globalData.session }, (attachedDevices) => {
+            console.log("getAttachedDevices成功");
+            console.log(attachedDevices);
+             that.setData({
+                    attachedDevices: attachedDevices
                 })
-            } else {
-                that.setData({
-                    deviceInfo: ret.ret.ret
-                })
-            }
         }, { loadingText: false });
-        console.log(deviceInfo);
     },
     onLoad: function (options) {
         let that = this
-        let deviceInfo = this.data.deviceInfo
-        console.log("index");
-        app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getAttachDevice', { session: app.globalData.session }, (ret) => {
-            console.log("设备添加接口成功");
-            console.log(ret.ret);
-            if (ret.ret.ret == 'null') {
-                that.setData({
-                    deviceInfo: []
-                })
-            } else {
-                that.setData({
-                    deviceInfo: ret.ret.ret
-                })
-            }
-        }, { loadingText: false });
-        console.log(deviceInfo);
+        console.log("index")
+        this.getAttachedDevices()
+
     }
 })

@@ -114,7 +114,8 @@ App({
   globalData: {
     session: null,
     userInfo: null
-  }
+  },
+  gOnShowFlags:{}
 })
 
 

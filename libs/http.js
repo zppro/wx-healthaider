@@ -9,7 +9,6 @@
                 this.fetch(url, {}, successFn, options, bizFailFn);
             },
             post: function(url, data, successFn, options, bizFailFn) {
-                console.log(url);
                 options = options || {};
                 options.method = 'POST';
                 this.fetch(url, data, successFn, options, bizFailFn);
@@ -38,6 +37,7 @@
                         if (res.data.success) {
                             console.log(!!toastInfo)
                             toastInfo && app.toast.show(toastInfo, {duration: 1500})
+                            console.log('res data:', res.data)
                             if (res.data.rows){
                                 successFn(res.data.rows)
                             } else if (res.data.ret) {

@@ -6,7 +6,7 @@
         <image src="../../images/tianjia.png"></image>
         <text>点击添加设备</text>
       </view>
-      <block wx:for="{{deviceInfo}}" wx:for-index="idx" wx:for-item="device" wx:key="deviceKey">
+      <block wx:for="{{attachedDevices}}" wx:for-index="idx" wx:for-item="device" wx:key="deviceKey">
         <view class="device-list v-flex" data-id="{{inx}}">
           <view class="device-li-item h-flex" bindtap="gotoDetails" data-id="{{device.deviceId}}">
             <view class="device-img">

@@ -25,7 +25,6 @@ Page({
                 if (res.confirm) {
                     app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$removeDevice', { session: app.globalData.session, deviceId: deviceInfo.deviceId, tenantId: tenantId }, (ret) => {
                         console.log("解除绑定");
-                        console.log(ret);
                         wx.switchTab({
                             url: './mine'
                             })
@@ -103,7 +102,6 @@ Page({
                 success: function (res) {
                     app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$changeDeviceInfo', { deviceInfo: deviceInfo, session: app.globalData.session, tenantId: tenantId }, (ret) => {
                         console.log("信息修改成功");
-                        console.log(ret);
                         wx.switchTab({
                             url: './mine'
                          })
@@ -140,23 +138,13 @@ Page({
             }
         })
     },
-    // onShow: function (options) {
-    //     let that = this
-    //     app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getDeviceDetails', { session: app.globalData.session, devId: id, tenantId: tenantId }, (ret) => {
-    //         console.log("设备添加接口成功");
-    //         console.log(ret);
-    //         that.setData({
-    //             deviceInfo: ret
-    //         })
-    //     }, { loadingText: false });
-    // },
     onLoad: function (options) {
         let that = this
         console.log(" addDevice")
         var id = options.id
         var tenantId = app.config[keys.CONFIG_SERVER].getTenantId();
         app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getDeviceDetails', { session: app.globalData.session, devId: id, tenantId: tenantId }, (ret) => {
-            console.log("设备添加接口成功");
+            console.log("getDeviceDetails成功");
             console.log(ret);
             that.setData({
                 deviceInfo: ret

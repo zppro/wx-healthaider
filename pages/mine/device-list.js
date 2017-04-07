@@ -4,8 +4,8 @@ import keys from '../../config/keys.js'
 var app = getApp()
 Page({
     data: {
-       //deviceInfo:[{name:'睡眠监测带',memberName:'爸爸',deviceId:'A1100065'},{name:'睡眠监测带',memberName:'爸爸',deviceId:'A1100065'}]
-       deviceInfo:[]
+       //attachedDevices:[{name:'睡眠监测带',memberName:'爸爸',deviceId:'A1100065'},{name:'睡眠监测带',memberName:'爸爸',deviceId:'A1100065'}]
+       attachedDevices:[]
     },
     gotoDetails:function(e){
         console.log(e);
@@ -15,8 +15,7 @@ Page({
         })
     },
      addDevice: function () {
-        console.log("sleepZoneTap")
-        let deviceInfo = this.data.deviceInfo
+        console.log("addDevice")
         wx.scanCode({
             success: (res) => {
                 console.log(res.result)
@@ -26,40 +25,20 @@ Page({
             },
     })
     },
-     onShow: function (options) {
+    getAttachedDevices: function () {
         let that = this
-        let deviceInfo = this.data.deviceInfo
-        var tenantId = app.config[keys.CONFIG_SERVER].getTenantId();
-        console.log("device list");
-        app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getAttachDevice', { session: app.globalData.session,tenantId:tenantId }, (ret) => {
-                 if(ret.ret.ret =='null'){
-                that.setData({
-                deviceInfo: []
-            })
-            }else{
+        app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getAttachDevice', { session: app.globalData.session }, (attachedDevices) => {
+            console.log("getAttachedDevices成功");
+            console.log(attachedDevices);
             that.setData({
-                deviceInfo: ret.ret.ret
+                attachedDevices: attachedDevices
             })
-            }
         }, { loadingText: false });
-        console.log("get:",deviceInfo);
+    },
+     onShow: function (options) {
+      this.getAttachedDevices() 
      },
     onLoad: function (options) {
-        let that = this
-        let deviceInfo = this.data.deviceInfo
-        var tenantId = app.config[keys.CONFIG_SERVER].getTenantId();
-        console.log("device list");
-        app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getAttachDevice', { session: app.globalData.session,tenantId:tenantId }, (ret) => {
-                 if(ret.ret.ret =='null'){
-                that.setData({
-                deviceInfo: []
-            })
-            }else{
-            that.setData({
-                deviceInfo: ret.ret.ret
-            })
-            }
-        }, { loadingText: false });
-        console.log("get:",deviceInfo);
+        this.getAttachedDevices()
     }
 })

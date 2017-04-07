@@ -134,3 +134,6 @@ page{
   text-align: left;
   color: #333333;
 }
+.icon-arrowright{
+  font-size: 10rpx;
+}

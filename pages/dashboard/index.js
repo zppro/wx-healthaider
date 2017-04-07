@@ -4,8 +4,8 @@ import keys from '../../config/keys.js'
 var app = getApp()
 Page({
     data: {
-        deviceInfo: [{ name: '爸爸', gotoBedTime: '22:00', sleepTime: '9', deepSleepTime: '3' }, { name: '爸爸', gotoBedTime: '22:00', sleepTime: '9', deepSleepTime: '3' }]
-        // deviceInfo: []
+        //deviceInfo: [{ memberName: '爸爸', sleepStatus:{fallAsleepTime:'22:00',sleepTime:'9',deepSleepTime:'3',evalution:'75'},gotoBedTime: '22:00', sleepTime: '9', deepSleepTime: '3' }, { name: '爸爸', gotoBedTime: '22:00', sleepTime: '9', deepSleepTime: '3' }]
+         deviceInfo: []
     },
     showMoreInfo: function () {
         console.log("showMoreInfo");

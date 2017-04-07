@@ -6,7 +6,7 @@ import keys from '../../config/keys.js'
 var app = getApp()
 Page({
     data: {
-        deviceInfo: {},
+        deviceInfo: {deviceId:'A1100123',memberName:'爸爸',age:'58',sex:'F'},
         actionSheetHidden: true,
         actionSheetSexItems: [
             { bindtap: 'SetSex', txt: '男' },

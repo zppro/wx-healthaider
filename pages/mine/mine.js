@@ -4,7 +4,7 @@ import keys from '../../config/keys.js'
 var app = getApp()
 Page({
     data: {
-        // deviceInfo: [{ name: '爸爸', gotoBedTime: '22:00', sleepTime: '9', deepSleepTime: '3' }]
+         //deviceInfo: [{ name: '爸爸', gotoBedTime: '22:00', sleepTime: '9', deepSleepTime: '3' }]
         deviceInfo: []
     },
     //事件
@@ -30,12 +30,6 @@ Page({
             })
         }
     },
-    braceletTap: function () {
-        console.log("braceletTap");
-    },
-    otherTap: function () {
-        console.log("otherTap");
-    },
     deleteTap: function () {
         console.log("deleteTap");
         wx.showModal({
@@ -51,6 +45,9 @@ Page({
     },
     ownTap: function () {
         console.log("ownTap");
+        //  wx.navigateTo({
+        //                 url: './addDevice'
+        //             })
     },
     useHelpTap: function () {
         console.log("useHelpTap");

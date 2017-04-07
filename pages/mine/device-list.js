@@ -4,7 +4,7 @@ import keys from '../../config/keys.js'
 var app = getApp()
 Page({
     data: {
-        // deviceInfo:[{name:'睡眠监测带',personName:'爸爸',id:'A1100065'},{name:'睡眠监测带',personName:'爸爸',id:'A1100065'}]
+       //deviceInfo:[{name:'睡眠监测带',memberName:'爸爸',deviceId:'A1100065'},{name:'睡眠监测带',memberName:'爸爸',deviceId:'A1100065'}]
        deviceInfo:[]
     },
     gotoDetails:function(e){

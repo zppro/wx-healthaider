@@ -8,8 +8,9 @@
         <text class="device-name">梧斯源睡眠检测仪</text>
         <text class="device-id">{{deviceInfo.deviceId}}</text>
       </view>
+      <button class="cancle-bangding" bindtap="removeDevice">取消绑定</button>
     </view>
-    <button class="cancle-bangding" bindtap="removeDevice">取消绑定</button>
+    
     <text class="person-text">该设备绑定的人</text>
     <form bindsubmit="formSubmit" bindreset="formReset">
       <view class="section">

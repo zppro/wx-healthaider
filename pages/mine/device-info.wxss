@@ -27,9 +27,9 @@ page{
 }
 .device-contain{
     color:white;
-    padding-left: 15px;
-    padding-top:20px;
-   
+    padding-left: 30rpx;
+    padding-top:40rpx;
+    padding-bottom: 50rpx;
 }
 .device-img{
     width:120rpx;
@@ -53,9 +53,7 @@ page{
     width: 250rpx;
     color:#666666;
     line-height: 75rpx;
-    height: 75rpx;
-    margin-right: 40rpx;
-    margin-bottom: 90rpx;    
+    height: 75rpx; 
 }
 .person-text{
     padding-left: 30rpx;
@@ -63,10 +61,10 @@ page{
 }
 
 .section{
-    padding-top: 25px;
+    padding-top: 50rpx;
 }
 .section-item{
-    height: 40px;
+    height: 80rpx;
 }
 .section-head{
     height:120rpx;
@@ -102,17 +100,16 @@ border-top: 1px solid #1082bf;
    border-top: 1px solid #1082bf;
 }
 .iconfont{
-    font-size: 30px;
-    padding-left: 15px;
-    top: 40px;
+    font-size: 50rpx;
+    padding-left: 30rpx;
 }
 .section-item-text{
-    font-size: 20px;
+    font-size: 30rpx;
 }
 .btn-area{
     width:80%;
     color:#09bb07;
-    margin:80px auto;
+    margin:160rpx auto;
 }
 
 .btn-area button{
@@ -126,7 +123,7 @@ border-top: 1px solid #1082bf;
     color:black;
 }
 .picker-view-column{
-    padding-left: 50px;
+    padding-left: 100rpx;
 }
 .button-box{
   color:#666666 !important;

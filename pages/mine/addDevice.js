@@ -12,11 +12,10 @@ Page({
             { bindtap: 'SetSex', txt: '男' },
             { bindtap: 'SetSex', txt: '女' }
         ],
-        menu: '',
         sex: '',
     },
     //事件
-     sleepZoneTap: function () {
+    sleepZoneTap: function () {
         console.log("sleepZoneTap")
         // wx.scanCode({
         //     complete: (res) => {
@@ -93,7 +92,7 @@ Page({
                         console.log(ret);
                         wx.switchTab({
                             url: '../dashboard/index'
-                         })
+                        })
                     }, { loadingText: false });
                     //console.log(JSON.stringify(deviceInfo));
                 }
@@ -128,15 +127,36 @@ Page({
         })
     },
     onLoad: function (options) {
-        let that = this;
-        let deviceInfo = this.data.deviceInfo;
-
-        console.log(" addDevice");
-        console.log(options);
-        var result = options.info.split("A");
-        console.log("A" + result[1]);
-        deviceInfo.devId = "A" + result[1];
-        deviceInfo.deviceMac = result[0]
+        let that = this
+        let deviceInfo = this.data.deviceInfo
+        console.log(" addDevice")
+        console.log(options)
+        var result = options.info.split("A")
+        console.log("A" + result[1])
+        //判断是否添加设备
+        var tenantId = app.config[keys.CONFIG_SERVER].getTenantId()
+        console.log("device list")
+        var deviceId = "A" + result[1]
+        var deviceMac = result[0]
+        app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$isAttach', { session: app.globalData.session, deviceId: deviceId, tenantId: tenantId }, (ret) => {
+            console.log('RET:', ret);
+            if (ret) {
+                console.log("true");
+                wx.showModal({
+                    content: '请勿重复绑定同一个设备',
+                    showCancel:false,
+                    success: function (res) {
+                        wx.redirectTo({
+                            url: './device-list'
+                        })
+                    }
+                })
+            } else {
+                console.log("false");
+            }
+        }, { loadingText: false });
+        deviceInfo.devId = deviceId
+        deviceInfo.deviceMac = deviceMac
         //alert(result);
         this.setData({
             deviceInfo: deviceInfo

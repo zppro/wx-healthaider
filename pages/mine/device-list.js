@@ -24,16 +24,32 @@ Page({
                     url: '../mine/addDevice?info='+res.result
                 })
             },
-            })
+    })
     },
+     onShow: function (options) {
+        let that = this
+        let deviceInfo = this.data.deviceInfo
+        var tenantId = app.config[keys.CONFIG_SERVER].getTenantId();
+        console.log("device list");
+        app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getAttachDevice', { session: app.globalData.session,tenantId:tenantId }, (ret) => {
+                 if(ret.ret.ret =='null'){
+                that.setData({
+                deviceInfo: []
+            })
+            }else{
+            that.setData({
+                deviceInfo: ret.ret.ret
+            })
+            }
+        }, { loadingText: false });
+        console.log("get:",deviceInfo);
+     },
     onLoad: function (options) {
         let that = this
         let deviceInfo = this.data.deviceInfo
         var tenantId = app.config[keys.CONFIG_SERVER].getTenantId();
         console.log("device list");
         app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getAttachDevice', { session: app.globalData.session,tenantId:tenantId }, (ret) => {
-            console.log("设备添加接口成功");
-            console.log(ret);
                  if(ret.ret.ret =='null'){
                 that.setData({
                 deviceInfo: []

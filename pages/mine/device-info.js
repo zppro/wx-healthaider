@@ -12,7 +12,6 @@ Page({
             { bindtap: 'SetSex', txt: '男' },
             { bindtap: 'SetSex', txt: '女' }
         ],
-        menu: '',
         sex: '',
     },
     //事件

@@ -141,7 +141,7 @@ Page({
         var deviceMac = result[0]
         app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$isAttach', { session: app.globalData.session, deviceId: deviceId, tenantId: tenantId }, (ret) => {
             console.log('RET:', ret);
-            if (ret) {
+            if (ret.isAttach) {
                 console.log("true");
                 wx.showModal({
                     content: '请勿重复绑定同一个设备',

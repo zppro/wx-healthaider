@@ -58,7 +58,12 @@ Page({
         console.log("downLoadTap");
     },
     onShow: function (options) {
-        this.getDeviceNumbers();
+         
+        if(app.gOnShowFlags[keys.G_ON_SHOW_NEW_ATTACH_DEVICE]){
+                this.getDeviceNumbers();    
+        }else{
+            app.gOnShowFlags[keys.G_ON_SHOW_NEW_ATTACH_DEVICE] = false
+        }
     },
     getDeviceNumbers:function(){
         let that = this;

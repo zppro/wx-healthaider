@@ -90,6 +90,7 @@ Page({
                     app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$addDevice', { deviceInfo: deviceInfo, session: app.globalData.session, tenantId: tenantId }, (ret) => {
                         console.log("设备添加接口成功");
                         console.log(ret);
+                        app.gOnShowFlags[keys.G_ON_SHOW_NEW_ATTACH_DEVICE] =true
                         wx.switchTab({
                             url: '../dashboard/index'
                         })

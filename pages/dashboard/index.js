@@ -26,7 +26,7 @@ Page({
         })
     },
     onShow: function (options) {
-        // app.gOnShowFlags[keys.G_ON_SHOW_NEW_ATTACH_DEVICE] && this.getAttachedDevices()
+        app.gOnShowFlags[keys.G_ON_SHOW_NEW_ATTACH_DEVICE] && this.getAttachedDevices()
     },
     getAttachedDevices: function () {
         let that = this

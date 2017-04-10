@@ -25,8 +25,9 @@ Page({
                 if (res.confirm) {
                     app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$removeDevice', { session: app.globalData.session, deviceId: deviceInfo.deviceId, tenantId: tenantId }, (ret) => {
                         console.log("解除绑定");
+                        app.gOnShowFlags[keys.G_ON_SHOW_NEW_ATTACH_DEVICE]=true
                         wx.switchTab({
-                            url: './mine'
+                            url: '../dashboard/index'
                             })
                     }, { loadingText: false });
                     console.log(JSON.stringify(deviceInfo));

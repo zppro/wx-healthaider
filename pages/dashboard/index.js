@@ -30,7 +30,7 @@ Page({
     },
     getAttachedDevices: function () {
         let that = this
-        app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getAttachDevice', { session: app.globalData.session }, (attachedDevices) => {
+        app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getAttachDevice', { openid: app.globalData.session.openid }, (attachedDevices) => {
             console.log("getAttachedDevices成功");
             console.log(attachedDevices);
             that.setData({
@@ -46,5 +46,8 @@ Page({
         let that = this
         console.log("index")
         this.getAttachedDevices()
-    }
+    },
+     onPullDownRefresh: function() {
+    // Do something when pull down.
+     },
 })

@@ -33,7 +33,7 @@ App({
           } else {
             that.globalData.session = session;
             that.getUserInfo(function (userInfo) {
-              getUserInfoSuccess(session, userInfo);
+              that.getUserInfoSuccess(session, userInfo);
             });
           }
         }, { loadingText: false })
@@ -68,7 +68,7 @@ App({
             wx.getUserInfo({
               success: function (res2) {
                 that.globalData.userInfo = res2.userInfo
-                getUserInfoSuccess(ret.session_value, res2.userInfo);
+                that.getUserInfoSuccess(ret.session_value, res2.userInfo);
               }
             });
           }
@@ -115,18 +115,14 @@ App({
     session: null,
     userInfo: null
   },
-  gOnShowFlags:{}
+  gOnShowFlags: {},
+  getUserInfoSuccess: function (session, userInfo) {
+    var tenantId = serverConfig.getTenantId();
+    console.log(tenantId);
+    console.log('session:', session)
+    console.log('userInfo: ', userInfo)
+    this.libs.http.post(serverConfig.getBizUrl() + 'sleepUser$regist', { openid: session.openid, userInfo, tenantId }, (ret) => {
+      console.log("注册接口成功");
+    }, { loadingText: false });
+  }
 })
-
-
-
-function getUserInfoSuccess(session, userInfo) {
-  var app = getApp();
-  var tenantId = serverConfig.getTenantId();
-  console.log(tenantId);
-  console.log('session:', session)
-  console.log('userInfo: ', userInfo)
-  app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepUser$regist', { session: session, userInfo: userInfo,tenantId:tenantId }, (ret) => {
-        console.log("注册接口成功");
-        }, { loadingText: false });
-}

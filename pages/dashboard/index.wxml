@@ -110,3 +110,5 @@
   </view>
   <image class="bg-img" src="../../images/banner.png"></image>
 </view>
+<import src="../../components/wx-toast/wx-toast.wxml" />
+<template is="wx-toast" data="{{toastOptions}}" />

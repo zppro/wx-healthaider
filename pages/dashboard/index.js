@@ -5,7 +5,10 @@ var app = getApp()
 Page({
     data: {
         //attachedDevices: [{ memberName: '爸爸', sleepStatus: { fallAsleepTime: '0', sleepTime: '9', deepSleepTime: '3', evalution: '85' }}]
-         attachedDevices: []
+        attachedDevices: []
+    },
+    onPullDownRefresh: function () {
+        this.getAttachedDevices(() => { wx.stopPullDownRefresh() })
     },
     showMoreInfo: function () {
         console.log("showMoreInfo");
@@ -28,7 +31,7 @@ Page({
     onShow: function (options) {
         app.gOnShowFlags[keys.G_ON_SHOW_NEW_ATTACH_DEVICE] && this.getAttachedDevices()
     },
-    getAttachedDevices: function () {
+    getAttachedDevices: function (cb) {
         let that = this
         app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getAttachDevice', { openid: app.globalData.session.openid }, (attachedDevices) => {
             console.log("getAttachedDevices成功");
@@ -40,11 +43,16 @@ Page({
                 key: "attachedDeviceNumbers",
                 data: attachedDevices.length
             })
-        }, { loadingText: false });
+            if (cb && typeof cb == 'function') cb()
+        }, { loadingText: false })
+        if (cb && typeof cb == 'function') {
+            setTimeout(cb, 2000)
+        }
     },
     onLoad: function (options) {
         let that = this
-        console.log("index")
+        console.log("index:", app)
+        app.toast.init(this)
         this.getAttachedDevices()
     },
      onPullDownRefresh: function() {

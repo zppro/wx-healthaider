@@ -9,7 +9,7 @@
     "pages/mine/howtouse"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundColor": "#a5d6e7",
     "navigationBarBackgroundColor": "#0f79b5",
     "navigationBarTitleText": "",
     "navigationBarTextStyle": "#0f79b5"

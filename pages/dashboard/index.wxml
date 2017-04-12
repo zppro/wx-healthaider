@@ -56,8 +56,8 @@
       </view>
       <view class="item-ul v-flex">
         <view class="item-ul-li h-flex item-ul-li-personInfo">
-          <view class="item-headpic">
-            <image src="../../images/father.png"></image>
+          <view class="item-headpic" catchtap="changeCarePersionAvatar">
+            <image src="../../images/father.png" mode="aspectFit"></image>
           </view>
           <view class="item-info v-flex">
             <text class="care-name">{{attachedDevices[0].memberName}}</text>

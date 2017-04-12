@@ -1,4 +1,5 @@
 //app.js
+import './polyfills/polyfill-provider.js'
 import libs from 'utils/libs.js'
 import util from 'utils/util.js'
 import keys from 'config/keys.js'

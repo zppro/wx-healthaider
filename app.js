@@ -131,5 +131,3 @@ App({
     }, { loadingText: false });
   }
 })
-  gOnShowFlags: {}
-})

@@ -34,7 +34,6 @@ import { jws } from 'jsrsasign-latest-all-min.js'
             },
             fetch: function (url, data, successFn, {useJWT = true, customHeader, method = 'GET', loadingText = '数据载入中...', toastInfo = '' } = {}, bizFailFn) {
                 var self = this;
-                // console.log(jws);
                 console.log('fetch invoke:', method, url, data, useJWT);
                 loadingText && wx.showToast({ title: loadingText, icon: 'loading' });
 
@@ -85,10 +84,8 @@ import { jws } from 'jsrsasign-latest-all-min.js'
 
                 var salt = 'woosiyuan-wxapp-general:' + ts
                 var sHeader = JSON.stringify({ alg: 'HS256', typ: 'JWT' })
-                var sPayload = JSON.stringify({ openid: this.app.globalData.session.openid })
-                console.log('jws:', jws.JWS)
+                var sPayload = JSON.stringify({ sub: this.app.globalData.session.openid })
                 var sJWT = jws.JWS.sign('HS256', sHeader, sPayload, salt)
-                console.log('sJWT:', sJWT)
                 defaultHeader['X-Custom-TS'] = ts
                 defaultHeader.Authorization = 'Bearer ' + sJWT
                 console.log('defaultHeader:', defaultHeader)

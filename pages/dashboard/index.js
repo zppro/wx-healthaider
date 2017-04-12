@@ -83,7 +83,7 @@ Page({
     },
     getAttachedDevices: function (cb) {
         let that = this
-        app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getAttachDevice', { openid: app.globalData.session.openid }, (attachedDevices) => {
+        app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getAttachDevice', {}, (attachedDevices) => {
             console.log("getAttachedDevices成功");
             console.log(attachedDevices);
             that.setData({

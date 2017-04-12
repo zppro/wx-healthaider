@@ -23,7 +23,7 @@ Page({
             title: '确定解绑？',
             success: function (res) {
                 if (res.confirm) {
-                    app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$removeDevice', { openid: app.globalData.session.openid, deviceId: deviceInfo.deviceId, tenantId: tenantId }, (ret) => {
+                    app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$removeDevice', { deviceId: deviceInfo.deviceId, tenantId}, (ret) => {
                         console.log("解除绑定");
                         app.gOnShowFlags[keys.G_ON_SHOW_NEW_ATTACH_DEVICE]=true
                         wx.switchTab({
@@ -101,7 +101,7 @@ Page({
                 itemList: ['确定修改？'],
                 itemColor: '#f00',
                 success: function (res) {
-                    app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$changeDeviceInfo', { deviceInfo: deviceInfo, openid: app.globalData.session.openid, tenantId: tenantId }, (ret) => {
+                    app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$changeDeviceInfo', { deviceInfo, tenantId }, (ret) => {
                         console.log("信息修改成功");
                         wx.switchTab({
                             url: './mine'
@@ -144,7 +144,7 @@ Page({
         console.log(" addDevice")
         var id = options.id
         var tenantId = app.config[keys.CONFIG_SERVER].getTenantId();
-        app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getDeviceDetails', { openid: app.globalData.session.openid, devId: id, tenantId: tenantId }, (ret) => {
+        app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getDeviceDetails', {  devId: id, tenantId }, (ret) => {
             console.log("getDeviceDetails成功");
             console.log(ret);
             that.setData({

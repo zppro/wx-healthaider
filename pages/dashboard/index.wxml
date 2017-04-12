@@ -12,7 +12,7 @@
     <block wx:else>
       <view class="show-table">
         <view class="show-table-text">睡眠得分</view>
-        <view class="status-ul  v-flex">
+        <view class="status-ul  vFlex">
           <view class="status-item h-flex">
             <text class="iconfont icon-iconfontyuandian icon-deep" />
             <text class="status-item-text">深睡</text>
@@ -37,10 +37,10 @@
           </block>
           <view class="status-score-box">
             <view class="status-score-image-box">
-              <image src="../../images/watch .png"></image>
+              <image src="../../images/watch.png"></image>
               <view class="h-flex status-score-text">
-              <text>{{attachedDevices[0].sleepStatus.evalution}}</text>
-              <text class="fen">分</text>
+                <text>{{attachedDevices[0].sleepStatus.evalution}}</text>
+                <text class="fen">分</text>
               </view>
             </view>
           </view>
@@ -63,8 +63,8 @@
             <text class="care-name">{{attachedDevices[0].memberName}}</text>
             <text class="care-text">我关心的人</text>
           </view>
-          <view class="more-info" bindtap="showMoreInfo">
-            <text class="more-text">查看更多</text>
+          <view class="more-info">
+            <text class="more-text" bindtap="showMoreInfo">查看更多</text>
             <text class="iconfont icon-arrowright icon-more" />
           </view>
         </view>
@@ -75,11 +75,12 @@
           <view class="item care-time">
             <text class="care-time-text">入睡时间</text>
             <block wx:if="{{attachedDevices[0].sleepStatus.fallAsleepTime == 0}}">
-             <text class="care-times">--</text>
+              <text class="care-times">--</text>
             </block>
             <block wx:else>
-            <text class="care-times">{{attachedDevices[0].sleepStatus.fallAsleepTime}}</text>
-            <!--<text class="care-tip-text">早早睡觉有助于增强身体免疫力哦！</text>-->
+              <text class="care-times">{{attachedDevices[0].sleepStatus.fallAsleepTime}}</text>
+
+              <!--<text class="care-tip-text">早早睡觉有助于增强身体免疫力哦！</text>-->
             </block>
           </view>
         </view>
@@ -91,6 +92,7 @@
             <text class="care-time-text">睡眠时间</text>
             <text class="care-times">{{attachedDevices[0].sleepStatus.sleepTime}}</text>
             <text class="h">h</text>
+
             <!--<text class="care-tip-text">睡眠时间充足</text>-->
           </view>
         </view>
@@ -100,8 +102,9 @@
           </view>
           <view class="item care-time">
             <text class="care-time-text">深度睡眠</text>
-             <text class="care-times">{{attachedDevices[0].sleepStatus.deepSleepTime}}</text>
-             <text class="h">h</text>
+            <text class="care-times">{{attachedDevices[0].sleepStatus.deepSleepTime}}</text>
+            <text class="h">h</text>
+
             <!--<text class="care-tip-text">深度睡眠时间偏低，充足的深度睡眠时间才是好的睡眠保障！</text>-->
           </view>
         </view>

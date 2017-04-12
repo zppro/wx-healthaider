@@ -62,7 +62,7 @@ page{
   height: 45px;
   padding: 0 8px;
   position: relative;
-  border-top: 1px solid #1083bf;
+  border-top: 1px solid #dddddd;
 }
 .my-manage-item-icon-c-share {
   width: 35px;
@@ -79,8 +79,9 @@ page{
     margin-top: 15px;
 }
 .my-manage-item-4,.my-manage-item-1{
-   border-bottom: 1px solid #1083bf;
+   border-bottom: 1px solid #dddddd;
 }
+
 .iconfont{
     font-size: 23px;
 }

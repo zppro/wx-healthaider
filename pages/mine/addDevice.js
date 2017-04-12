@@ -87,7 +87,7 @@ Page({
                 itemList: ['确定绑定？'],
                 itemColor: '#f00',
                 success: function (res) {
-                    app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$addDevice', { deviceInfo: deviceInfo, openid: app.globalData.session.openid, tenantId: tenantId }, (ret) => {
+                    app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$addDevice', {deviceInfo, tenantId}, (ret) => {
                         console.log("设备添加接口成功");
                         console.log(ret);
                         app.gOnShowFlags[keys.G_ON_SHOW_NEW_ATTACH_DEVICE] =true
@@ -139,7 +139,7 @@ Page({
         console.log("device list")
         var deviceId = "A" + result[1]
         var deviceMac = result[0]
-        app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$isAttach', { openid: app.globalData.session.openid, deviceId: deviceId, tenantId: tenantId }, (ret) => {
+        app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$isAttach', {deviceId, tenantId }, (ret) => {
             console.log('RET:', ret);
             if (ret.isAttach) {
                 console.log("true");

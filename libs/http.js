@@ -85,10 +85,10 @@ import { jws } from 'jsrsasign-latest-all-min.js'
 
                 var salt = 'woosiyuan-wxapp-general:' + ts
                 var sHeader = JSON.stringify({ alg: 'HS256', typ: 'JWT' })
+                console.log('this.open',this.app.globalData.session.openid);
                 var sPayload = JSON.stringify({ openid: this.app.globalData.session.openid })
-                console.log('jws:', jws.JWS)
+                
                 var sJWT = jws.JWS.sign('HS256', sHeader, sPayload, salt)
-                console.log('sJWT:', sJWT)
                 defaultHeader['X-Custom-TS'] = ts
                 defaultHeader.Authorization = 'Bearer ' + sJWT
                 console.log('defaultHeader:', defaultHeader)

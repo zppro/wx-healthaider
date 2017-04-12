@@ -126,10 +126,8 @@ App({
     console.log(tenantId);
     console.log('session:', session)
     console.log('userInfo: ', userInfo)
-    this.libs.http.post(serverConfig.getBizUrl() + 'sleepUser$regist', { openid: session.openid, userInfo, tenantId }, (ret) => {
+    this.libs.http.post(serverConfig.getBizUrl() + 'sleepUser$regist', { userInfo, tenantId }, (ret) => {
       console.log("注册接口成功");
     }, { loadingText: false });
   }
-})
-  gOnShowFlags: {}
 })

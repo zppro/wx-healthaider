@@ -59,7 +59,7 @@
       <text class="my-manage-item-text">删除数据</text>
     </view>
   </view>
-  <view class="h-flex my-manage-item" bindtap="ownTap">
+  <view class="h-flex my-manage-item my-manage-item-3" bindtap="ownTap">
     <view class="my-manage-item-icon-c">
       <view class="my-manage-item-icon-c-share">
         <text class="iconfont icon-yinsishuoming my-manage-item-icon"/>

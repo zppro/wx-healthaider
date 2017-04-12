@@ -4,8 +4,8 @@ import keys from '../../config/keys.js'
 var app = getApp()
 Page({
     data: {
-       //attachedDevices:[{name:'睡眠监测带',memberName:'爸爸',deviceId:'A1100065'},{name:'睡眠监测带',memberName:'爸爸',deviceId:'A1100065'}]
-       attachedDevices:[]
+      // attachedDevices:[{name:'睡眠监测带',memberName:'爸爸',deviceId:'A1100065'},{name:'睡眠监测带',memberName:'爸爸',deviceId:'A1100065'}]
+      attachedDevices:[]
     },
     gotoDetails:function(e){
         console.log(e);
@@ -27,7 +27,7 @@ Page({
     },
     getAttachedDevices: function () {
         let that = this
-        app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getAttachDevice', { session: app.globalData.session }, (attachedDevices) => {
+        app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getAttachDevice', { openid: app.globalData.session.openid }, (attachedDevices) => {
             console.log("getAttachedDevices成功");
             console.log(attachedDevices);
             that.setData({

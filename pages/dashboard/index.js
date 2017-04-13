@@ -11,21 +11,25 @@ Page({
     onPullDownRefresh: function () {
         this.getAttachedDevices(() => { wx.stopPullDownRefresh() })
     },
-    changeCarePersionAvatar: function () {
+    changeCarePersionAvatar: function (e) {
         let that = this;
+        let id = e.currentTarget.dataset.id
         if (!this.data.uptoken) {
             this.getUpToken().then(function (uptoken) {
                 that.setData({
                     uptoken
                 })
-                that.didPressChooseImage()
+                that.didPressChooseImage(id)
             });
         } else {
-            this.didPressChooseImage()
+            this.didPressChooseImage(id)
         }
     },
-    didPressChooseImage: function () {
+    didPressChooseImage: function (id) {
         let that = this;
+        let tenantId = app.config[keys.CONFIG_SERVER].getTenantId()
+        let attachedDevices = this.data.attachedDevices
+        let deviceName = attachedDevices[id].deviceId
         // 选择图片
         wx.chooseImage({
             count: 1,
@@ -40,13 +44,23 @@ Page({
                     //    "key": "gogopher.jpg"
                     //  }
                     // 参考http://developer.qiniu.com/docs/v6/api/overview/up/response/simple-response.html
-                    console.log('upload success:', res);
+                    console.log('upload success:', res.imageURL);
+                    let portraitUrl =  res.imageURL
+                    app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$changeCarePersonPortrait', {portraitUrl,deviceName,tenantId}, (ret) => {
+                        console.log("changeCarePersonPortrait okertrip");
+                        attachedDevices[id].portraitUrl = portraitUrl
+                        console.log("attachedDevices imageURL:",attachedDevices[id].portraitUrl)
+                        that.setData({
+                            attachedDevices
+                        })
+                        console.log(attachedDevices);
+                    }, { loadingText: false })
                 }, (error) => {
                     console.log('error: ' + error);
                 }, {
                         uploadURL: 'https://up.qbox.me',
                         domain: 'https://img2.okertrip.com/',
-                        key: 'avatar/' + filePath,
+                        key: ('avatar/' + filePath).replace(/:\/\//g, "/"),
                         uptoken: that.data.uptoken
                     });
             }

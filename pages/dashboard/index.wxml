@@ -57,7 +57,12 @@
       <view class="item-ul v-flex">
         <view class="item-ul-li h-flex item-ul-li-personInfo">
           <view class="item-headpic" catchtap="changeCarePersionAvatar" data-id="0">
+          <block wx:if="{{attachedDevices[0].portraitUrl == ''|| attachedDevices[0].portraitUrl == undefined}}">
             <image src="../../images/father.png" mode="aspectFit"></image>
+          </block>
+          <block wx:else>
+            <image src="{{attachedDevices[0].portraitUrl}}" mode="aspectFit"></image>
+          </block>
           </view>
           <view class="item-info v-flex">
             <text class="care-name">{{attachedDevices[0].memberName}}</text>

@@ -11,8 +11,9 @@ Page({
     onPullDownRefresh: function () {
         this.getAttachedDevices(() => { wx.stopPullDownRefresh() })
     },
-    changeCarePersionAvatar: function () {
+    changeCarePersionAvatar: function (e) {
         let that = this;
+        let deviceName = e.currentTarget.dataset.id
         if (!this.data.uptoken) {
             this.getUpToken().then(function (uptoken) {
                 that.setData({

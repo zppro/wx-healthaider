@@ -4,26 +4,38 @@ import keys from '../../config/keys.js'
 var app = getApp()
 Page({
     data: {
-        //attachedDevices: [{ memberName: '爸爸', sleepStatus: { fallAsleepTime: '0', sleepTime: '9', deepSleepTime: '3', evalution: '85' }}]
+        //attachedDevices: [{ memberName: '爸爸', sleepStatus: { fallAsleepTime: '0', sleepTime: '9', deepSleepTime: '3', evalution: '85' } }],
         uptoken: null,
-        attachedDevices: []
+         attachedDevices: []
     },
     onPullDownRefresh: function () {
         this.getAttachedDevices(() => { wx.stopPullDownRefresh() })
     },
-    changeCarePersionAvatar: function (e) {
-        let that = this;
+    ownInfo: function (e) {
         let id = e.currentTarget.dataset.id
-        if (!this.data.uptoken) {
-            this.getUpToken().then(function (uptoken) {
-                that.setData({
-                    uptoken
-                })
-                that.didPressChooseImage(id)
-            });
-        } else {
-            this.didPressChooseImage(id)
-        }
+        let attachedDevices = this.data.attachedDevices;
+        console.log("ownInfo:",attachedDevices[id]);
+        let cid = attachedDevices[id].carePersonId;
+        wx.navigateTo({
+            url: '../mine/carePerson-info?cid='+cid
+        })
+    },
+    changeCarePersionAvatar: function (e) {
+        wx.navigateTo({
+            url: '../mine/carePerson-info'
+        })
+        // let that = this;
+        // let id = e.currentTarget.dataset.id
+        // if (!this.data.uptoken) {
+        //     this.getUpToken().then(function (uptoken) {
+        //         that.setData({
+        //             uptoken
+        //         })
+        //         that.didPressChooseImage(id)
+        //     });
+        // } else {
+        //     this.didPressChooseImage(id)
+        // }
     },
     didPressChooseImage: function (id) {
         let that = this;
@@ -45,11 +57,11 @@ Page({
                     //  }
                     // 参考http://developer.qiniu.com/docs/v6/api/overview/up/response/simple-response.html
                     console.log('upload success:', res.imageURL);
-                    let portraitUrl =  res.imageURL
-                    app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$changeCarePersonPortrait', {portraitUrl,deviceName,tenantId}, (ret) => {
+                    let portraitUrl = res.imageURL
+                    app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$changeCarePersonPortrait', { portraitUrl, deviceName, tenantId }, (ret) => {
                         console.log("changeCarePersonPortrait okertrip");
                         attachedDevices[id].portraitUrl = portraitUrl
-                        console.log("attachedDevices imageURL:",attachedDevices[id].portraitUrl)
+                        console.log("attachedDevices imageURL:", attachedDevices[id].portraitUrl)
                         that.setData({
                             attachedDevices
                         })

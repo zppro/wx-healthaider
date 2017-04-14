@@ -9,34 +9,34 @@ page{
   width: 100%;
   /*background-image: url('/../../images/banner.jpg');*/
   background-size: 100% 100%;
-  height:200px;
+  height:400rpx;
   box-sizing: border-box;
   overflow: hidden;
 }
 .banner-img-box{
     width: 100%;
     display: flex;
-    height: 10px;
+    height: 20rpx;
 }
 .banner-img{
     width: 100%;
-    height: 200px;
+    height: 400rpx;
 }
 .userinfo-space-top {
   width:100%;
   text-align: right;
 }
 .icon-iconshezhi01{
-    margin-right:25px;
+    margin-right:50rpx;
     color:white;
-    font-size: 13px;
+    font-size: 26rpx;
 }
 .userinfo-avatar-c {
   flex: 5;
 }
 .userinfo-avatar-c2 {
-  padding: 2px;
-  margin-top: 45px;
+  padding: 4rpx;
+  margin-top: 90rpx;
   width: 140rpx;
   height: 140rpx;
   background-color: rgba(255,255,255,.8);
@@ -59,14 +59,14 @@ page{
 
 .my-manage-item {
   background-color: white;
-  height: 45px;
+  height: 78rpx;
   padding: 0 8px;
   position: relative;
   border-top: 1px solid #dddddd;
 }
 .my-manage-item-icon-c-share {
-  width: 35px;
-  height: 35px;
+  width: 70rpx;
+  height: 70rpx;
   border-radius: 50%;
   text-align: center;
   display: inline-block;
@@ -75,24 +75,29 @@ page{
 .my-manage-item-icon-c{
   width:100%;
 }
-.my-manage-item-1,.my-manage-item-2{
-    margin-top: 15px;
+.my-manage-item-1,.my-manage-item-3{
+    margin-top: 30rpx;
 }
-.my-manage-item-4,.my-manage-item-1{
+.my-manage-item-5,.my-manage-item-2{
    border-bottom: 1px solid #dddddd;
 }
 
 .iconfont{
-    font-size: 23px;
+    font-size: 46rpx;
 }
 .icon-shuimian{
     color:#4e8aee;
 }
 .check-out{
    color: rgb(114,114,114);
-   font-size: 15px;
-   padding:3px 6px 0 0;
+   font-size:30rpx;
+   padding:6rpx 12rpx 0 0;
    float: right;
+}
+.goto-next{
+ padding:6rpx 12rpx 0 0;
+  float: right;
+  color: rgb(114,114,114);
 }
 
 .icon-shouhuan{
@@ -101,9 +106,9 @@ page{
 .icon-qita{
     color:#1bbd2a;
 }
-.icon-weibiaoti-,.icon-qingchuhuancun,.icon-yinsishuoming,.icon-ruheshiyong{
+.icon-weibiaoti-,.icon-qingchuhuancun,.icon-yinsishuoming,.icon-ruheshiyong,.icon-tianjia{
     color:#1082bf;
-    font-size: 35px;
+    font-size: 70rpx;
 }
 .my-manage-item-icon-c1 {
   background-color: #7d7dfa;
@@ -130,8 +135,8 @@ page{
 }
 
 .my-manage-item-text {
-  padding-left: 8px;
-  font-size: 16px;
+  padding-left: 16rpx;
+  font-size: 32rpx;
   text-align: left;
   color: #333333;
 }

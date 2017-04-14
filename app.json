@@ -5,7 +5,7 @@
     "pages/mine/mine",
     "pages/mine/addDevice",
     "pages/mine/device-list",
-    "pages/mine/device-info",
+    "pages/mine/carePerson-info",
     "pages/mine/howtouse"
   ],
   "window": {

@@ -4,14 +4,14 @@ import keys from '../../config/keys.js'
 var app = getApp()
 Page({
     data: {
-      // attachedDevices:[{name:'睡眠监测带',memberName:'爸爸',deviceId:'A1100065'},{name:'睡眠监测带',memberName:'爸爸',deviceId:'A1100065'}]
-      attachedDevices:[]
+      // attachedcarePersons:[{name:'睡眠监测带',memberName:'爸爸',deviceId:'A1100065'},{name:'睡眠监测带',memberName:'爸爸',deviceId:'A1100065'}]
+      attachedcarePersons:[]
     },
     gotoDetails:function(e){
         console.log(e);
         var id = e.currentTarget.dataset.id
           wx.navigateTo({
-            url: '../mine/device-info?id='+id
+            url: '../mine/carePerson-info?id='+id
         })
     },
      addDevice: function () {
@@ -27,11 +27,11 @@ Page({
     },
     getAttachedDevices: function () {
         let that = this
-        app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getAttachDevice', {}, (attachedDevices) => {
+        app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getAttachDevice', {}, (attachedcarePersons) => {
             console.log("getAttachedDevices成功");
-            console.log(attachedDevices);
+            console.log(attachedcarePersons);
             that.setData({
-                attachedDevices: attachedDevices
+                attachedcarePersons: attachedcarePersons
             })
         }, { loadingText: false });
     },

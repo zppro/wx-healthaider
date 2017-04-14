@@ -29,6 +29,16 @@ Page({
             })
         }
     },
+    addDevice:function(){
+        wx.scanCode({
+                success: (res) => {
+                    console.log(res.result)
+                    wx.navigateTo({
+                        url: './addDevice?info=' + res.result
+                    })
+                }
+            })
+    },
     deleteTap: function () {
         console.log("deleteTap");
         wx.showModal({

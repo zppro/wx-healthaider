@@ -56,7 +56,7 @@
       </view>
       <view class="item-ul v-flex">
         <view class="item-ul-li h-flex item-ul-li-personInfo">
-          <view class="item-headpic" catchtap="changeCarePersionAvatar" data-id="0">
+          <view class="item-headpic" catchtap="ownInfo" data-id="0">
           <block wx:if="{{attachedDevices[0].portraitUrl == ''|| attachedDevices[0].portraitUrl == undefined}}">
             <image src="../../images/father.png" mode="aspectFit"></image>
           </block>
@@ -65,7 +65,7 @@
           </block>
           </view>
           <view class="item-info v-flex">
-            <text class="care-name">{{attachedDevices[0].memberName}}</text>
+            <text class="care-name">{{attachedDevices[0].carePersonName}}</text>
             <text class="care-text">我关心的人</text>
           </view>
           <view class="more-info">

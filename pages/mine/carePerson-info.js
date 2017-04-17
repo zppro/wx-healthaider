@@ -48,15 +48,19 @@ Page({
                     // 参考http://developer.qiniu.com/docs/v6/api/overview/up/response/simple-response.html
                     console.log('upload success:', res.imageURL);
                     let portraitUrl = res.imageURL
-                    app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$changeCarePersonPortrait', { portraitUrl, id }, (ret) => {
-                        console.log("changeCarePersonPortrait okertrip");
-                        memberCarePersonInfo.portraitUrl = portraitUrl
-                        console.log("attachedDevices imageURL:", memberCarePersonInfo.portraitUrl)
-                        that.setData({
+                    memberCarePersonInfo.portraitUrl = portraitUrl
+                    that.setData({
                             memberCarePersonInfo
                         })
-                        console.log(attachedDevices);
-                    }, { loadingText: false })
+                    // app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$changeCarePersonPortrait', { portraitUrl, id }, (ret) => {
+                    //     console.log("changeCarePersonPortrait okertrip");
+                    //     memberCarePersonInfo.portraitUrl = portraitUrl
+                    //     console.log("attachedDevices imageURL:", memberCarePersonInfo.portraitUrl)
+                    //     that.setData({
+                    //         memberCarePersonInfo
+                    //     })
+                    //     console.log(attachedDevices);
+                    // }, { loadingText: false })
                 }, (error) => {
                     console.log('error: ' + error);
                 }, {
@@ -134,11 +138,13 @@ Page({
         var that = this
         let memberCarePersonInfo = this.data.memberCarePersonInfo
         var carePersonId = memberCarePersonInfo.carePersonId
+        let portraitUrl = memberCarePersonInfo.portraitUrl
         var tenantId = app.config[keys.CONFIG_SERVER].getTenantId();
         if (that.checkOut(e)) {
             console.log("e:", e.detail.value)
             memberCarePersonInfo = e.detail.value
             memberCarePersonInfo.carePersonId = carePersonId
+            memberCarePersonInfo.portraitUrl = portraitUrl
             that.setData({
                 memberCarePersonInfo
             });

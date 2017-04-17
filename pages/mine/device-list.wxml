@@ -1,25 +1,33 @@
 <view class="container">
   <view class="contain-box">
-    <block wx:for="{{attachedcarePersons}}" wx:for-index="idx" wx:for-item="carePerson" wx:key="carePersonKey">
-      <view class="carePerson-list v-flex" data-id="{{inx}}">
-        <view class="carePerson-li-item h-flex" bindtap="gotoDetails" data-id="{{carePerson.carePersonId}}">
-          <view class="carePerson-img">
-            <block wx:if="{{carePerson.portraitUrl == '' || carePerson.portraitUrl == undefined}}">
-              <image src="../../images/father.png"></image>
-            </block>
-            <block wx:else>
-              <image src="{{carePerson.portraitUrl}}"></image>
-            </block>
+    <view class="add-device-img v-flex">
+      <block wx:if="{{memberCarePersonInfo.portraitUrl == '' || memberCarePersonInfo.portraitUrl == undefined}}">
+        <image src="../../images/father.png" mode="aspectFit"></image>
+      </block>
+      <block wx:else>
+        <image src="{{memberCarePersonInfo.portraitUrl}}" mode="aspectFit"></image>
+      </block>
+      
+    </view>
+    <text class="carePerson-name">{{memberCarePersonInfo.carePersonName}}</text>
+    <view  class="device-name">
+         <text>梧斯源睡眠检测仪</text>
+    </view>
+    <!--<block wx:for="{{attachedDevices}}" wx:for-index="idx" wx:for-item="device" wx:key="deviceKey">-->
+      <view class="device-list v-flex" data-id="{{inx}}">
+        <view class="device-li-item h-flex">
+          <view class="device-img">
+            <image src="../../images/chanpin.png"></image>
           </view>
-          <view class="carePerson-info v-flex">
-            <text class="carePerson-name">{{carePerson.carePersonName}}</text>
+          <view class="device-info v-flex">
+            <text class="device-id">{{memberCarePersonInfo.deviceName}}</text>
           </view>
-          <view class="carePerson-info-more" bindtap="sleepZoneTap">
-            <text class="iconfont icon-arrowright" />
+          <view class="device-info-more" bindtap="removeDevice" data-id="{{memberCarePersonInfo.deviceName}}">
+            <button class="btn">取消绑定</button>
           </view>
         </view>
       </view>
-    </block>
+    <!--</block>-->
   </view>
   <image class="bg-img" src="../../images/banner.png" mode="widthFix"></image>
 </view>

@@ -12,22 +12,9 @@ Page({
     },
     sleepZoneTap: function () {
         console.log("sleepZoneTap")
-        var attachedDeviceNumbers = this.data.attachedDeviceNumbers
-        if (attachedDeviceNumbers <= 0) {
-            wx.scanCode({
-                success: (res) => {
-                    console.log(res.result)
-                    wx.navigateTo({
-                        url: './addDevice?info=' + res.result
-                    })
-                }
-            })
-        }
-        else {
             wx.navigateTo({
-                url: './device-list'
+                url: './carePerson-list'
             })
-        }
     },
     addDevice:function(){
         wx.scanCode({

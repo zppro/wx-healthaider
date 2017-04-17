@@ -47,11 +47,6 @@ import { jws } from 'jsrsasign-latest-all-min.js'
                         if (res.statusCode === 200) {
                             if (res.data.success) {
                                 console.log(!!toastInfo)
-<<<<<<< HEAD
-                                // console.log('self.app', self.app)
-=======
-                                //console.log('self.app', self.app)
->>>>>>> e518529f3a1b3281ef7ba15e6d2823075feb1c7c
                                 toastInfo && self.app.toast.show(toastInfo, { duration: 1500 })
                                 console.log('res data:', res.data)
                                 if (res.data.rows) {

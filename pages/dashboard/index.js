@@ -146,10 +146,7 @@ Page({
     },
     onLoad: function (options) {
         let that = this
-<<<<<<< HEAD
-        // console.log("index:", app)
-=======
->>>>>>> e518529f3a1b3281ef7ba15e6d2823075feb1c7c
+
         app.toast.init(this)
         this.getAttachedDevices()
     },

@@ -1,0 +1,25 @@
+<view class="container">
+  <view class="contain-box">
+    <block wx:for="{{attachedcarePersons}}" wx:for-index="idx" wx:for-item="carePerson" wx:key="carePersonKey">
+      <view class="carePerson-list v-flex" data-id="{{inx}}">
+        <view class="carePerson-li-item h-flex" bindtap="gotoDetails" data-id="{{carePerson.carePersonId}}">
+          <view class="carePerson-img">
+            <block wx:if="{{carePerson.portraitUrl == '' || carePerson.portraitUrl == undefined}}">
+              <image src="../../images/father.png" mode="aspectFit"></image>
+            </block>
+            <block wx:else>
+              <image src="{{carePerson.portraitUrl}}" mode="aspectFit"></image>
+            </block>
+          </view>
+          <view class="carePerson-info">
+            <text class="carePerson-name">{{carePerson.carePersonName}}</text>
+          </view>
+          <view class="carePerson-info-more" bindtap="gotoDeviceList" data-id="{{carePerson.carePersonId}}">
+            <text class="iconfont icon-arrowright" />
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <image class="bg-img" src="../../images/banner.png" mode="widthFix"></image>
+</view>

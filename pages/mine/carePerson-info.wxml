@@ -8,10 +8,10 @@
           </view>
           <view class="head">
             <block wx:if="{{memberCarePersonInfo.portraitUrl == '' || memberCarePersonInfo.portraitUrl == undefined}}">
-            <image src="../../images/father.png"></image>
+            <image src="../../images/father.png" mode="aspectFit"></image>
             </block>
             <block wx:else>
-            <image src="{{memberCarePersonInfo.portraitUrl}}"></image>
+            <image src="{{memberCarePersonInfo.portraitUrl}}" mode="aspectFit"></image>
             </block>
           </view>
           <text class="iconfont icon-next my-manage-item-icon goto-next"/>

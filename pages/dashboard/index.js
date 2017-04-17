@@ -6,8 +6,21 @@ Page({
     data: {
         //attachedDevices: [{ memberName: '爸爸', sleepStatus: { fallAsleepTime: '0', sleepTime: '9', deepSleepTime: '3', evalution: '85' } }],
         uptoken: null,
-         attachedDevices: []
+        attachedDevice:{},
+        attachedDevices: []
     },
+    nextPerson:function(e){
+        let old_order = e.currentTarget.dataset.id
+        let attachedDevices = this.data.attachedDevices
+        let attachedDevice = this.data.attachedDevice
+        let order = old_order
+        attachedDevice = attachedDevices[order]
+        attachedDevice.order = order
+        this.setData({
+            attachedDevice
+        })
+    }
+    ,
     onPullDownRefresh: function () {
         this.getAttachedDevices(() => { wx.stopPullDownRefresh() })
     },
@@ -109,12 +122,18 @@ Page({
     },
     getAttachedDevices: function (cb) {
         let that = this
+        let attachedDevice = this.data.attachedDevice
+       
         app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getAttachDevice', {}, (attachedDevices) => {
-            console.log("getAttachedDevices成功");
-            console.log(attachedDevices);
+            console.log("getAttachedDevices成功")
+            console.log(attachedDevices)
+            attachedDevice = attachedDevices[0]
+            attachedDevice.order = 0
             that.setData({
-                attachedDevices: attachedDevices
+                attachedDevices: attachedDevices,
+                attachedDevice:attachedDevice
             })
+            console.log("attachedDevice1",attachedDevice)
             wx.setStorage({
                 key: "attachedDeviceNumbers",
                 data: attachedDevices.length
@@ -127,7 +146,6 @@ Page({
     },
     onLoad: function (options) {
         let that = this
-        console.log("index:", app)
         app.toast.init(this)
         this.getAttachedDevices()
     },

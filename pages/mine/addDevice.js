@@ -87,10 +87,10 @@ Page({
                 itemList: ['确定绑定？'],
                 itemColor: '#f00',
                 success: function (res) {
-                    app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$addDevice', {deviceInfo, tenantId}, (ret) => {
+                    app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$addDevice', { deviceInfo, tenantId }, (ret) => {
                         console.log("设备添加接口成功");
                         console.log(ret);
-                        app.gOnShowFlags[keys.G_ON_SHOW_NEW_ATTACH_DEVICE] =true
+                        app.gOnShowFlags[keys.G_ON_SHOW_NEW_ATTACH_DEVICE] = true
                         wx.switchTab({
                             url: '../dashboard/index'
                         })
@@ -139,16 +139,19 @@ Page({
         console.log("device list")
         var deviceId = "A" + result[1]
         var deviceMac = result[0]
-        app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$isAttach', {deviceId, tenantId }, (ret) => {
+        app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$isAttach', { deviceId, tenantId }, (ret) => {
             console.log('RET:', ret);
             if (ret.isAttach) {
                 console.log("true");
                 wx.showModal({
                     content: '请勿重复绑定同一个设备',
-                    showCancel:false,
+                    showCancel: false,
                     success: function (res) {
-                        wx.redirectTo({
-                            url: './device-list'
+                        // wx.redirectTo({
+                        //     url: '../mine/mine'
+                        // })
+                        wx.switchTab({
+                            url: '/pages/mine/mine'
                         })
                     }
                 })

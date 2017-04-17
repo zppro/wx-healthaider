@@ -12,9 +12,12 @@ Page({
     },
     sleepZoneTap: function () {
         console.log("sleepZoneTap")
-        var attachedDeviceNumbers = this.data.attachedDeviceNumbers
-        if (attachedDeviceNumbers <= 0) {
-            wx.scanCode({
+            wx.navigateTo({
+                url: './carePerson-list'
+            })
+    },
+    addDevice:function(){
+        wx.scanCode({
                 success: (res) => {
                     console.log(res.result)
                     wx.navigateTo({
@@ -22,12 +25,6 @@ Page({
                     })
                 }
             })
-        }
-        else {
-            wx.navigateTo({
-                url: './device-list'
-            })
-        }
     },
     deleteTap: function () {
         console.log("deleteTap");

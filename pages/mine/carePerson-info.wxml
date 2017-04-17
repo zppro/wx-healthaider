@@ -1,53 +1,45 @@
 <view class="container">
   <view class="allInfo">
-    <view class="device-contain h-flex">
-      <view class="device-img">
-        <image src="../../images/chanpin.png" class="device-img-item"></image>
-      </view>
-      <view class="v-flex device-info">
-        <text class="device-name">梧斯源睡眠检测仪</text>
-        <text class="device-id">{{deviceInfo.deviceId}}</text>
-      </view>
-      <button class="cancle-bangding" bindtap="removeDevice">取消绑定</button>
-    </view>
-    
-    <text class="person-text">该设备绑定的人</text>
     <form bindsubmit="formSubmit" bindreset="formReset">
       <view class="section">
-        <view class="h-flex section-item section-item-1 section-head">
+        <view class="h-flex section-item section-item-1 section-head" catchtap="changeCarePersionAvatar" data-id="{{memberCarePersonInfo.carePersonId}}">
           <view class="section__title ">
             <text class="section-item-head-text">头像：</text>
           </view>
           <view class="head">
-            <image src="../../images/father.png"></image>
+            <block wx:if="{{memberCarePersonInfo.portraitUrl == '' || memberCarePersonInfo.portraitUrl == undefined}}">
+            <image src="../../images/father.png" mode="aspectFit"></image>
+            </block>
+            <block wx:else>
+            <image src="{{memberCarePersonInfo.portraitUrl}}" mode="aspectFit"></image>
+            </block>
           </view>
+          <text class="iconfont icon-next my-manage-item-icon goto-next"/>
         </view>
         <view class="h-flex section-item section-item-1">
-          <view class="section__title">
+          <view>
             <text class="iconfont icon-mingcheng" />
             <text class="section-item-text">昵称：</text>
           </view>
-          <input name="cpName" placeholder="例如：爸爸" value="{{deviceInfo.memberName}}"/>
+          <input name="cpName" placeholder="例如：爸爸" value="{{memberCarePersonInfo.carePersonName}}" bindblur="bindnameInput"/>
         </view>
         <view class="h-flex section-item section-item-2" bindtap="actionSheetTap">
-          <view class="section__title">
+          <view>
             <text class="iconfont icon-nianling" />
             <text class="section-item-text">年龄：</text>
           </view>
-          <input name="cpAge" placeholder="请输入年龄" value="{{deviceInfo.age}}"/>
+          <input name="cpAge" placeholder="请输入年龄" value="{{memberCarePersonInfo.age}}" bindblur="bindageInput"/>
         </view>
         <view class="h-flex section-item section-item-3" bindtap="sexTap">
-          <view class="section__title">
+          <view>
             <text class="iconfont icon-xingbie1" />
             <text class="section-item-text">性别：</text>
           </view>
-          <input disabled="false" name="sex" placeholder="请输入性别" value="{{deviceInfo.sex=='F'?'女':'男'}}" />
-        </view>
-        <view class="section-item section-item-4">
+          <input disabled="false" name="sex" placeholder="请输入性别" value="{{memberCarePersonInfo.sex=='F'?'女':'男'}}" />
         </view>
       </view>
       <view class="btn-area h-flex">
-        <button formType="submit" >保存</button>
+        <button formType="submit" >保存修改</button>
       </view>
     </form>
     <action-sheet hidden="{{actionSheetHidden}}" bindchange="sexchange" class="action-sheet-box">

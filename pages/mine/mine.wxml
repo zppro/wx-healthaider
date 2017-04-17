@@ -22,7 +22,7 @@
         <text class="iconfont icon-weibiaoti- my-manage-item-icon"/>
         <view class="verticle-middle"></view>
       </view>
-      <text class="my-manage-item-text">睡眠带</text>
+      <text class="my-manage-item-text">我关心的人</text>
       <block wx:if="{{attachedDeviceNumbers<=0}}">
       <text class="iconfont check-out my-manage-item-icon">未绑定<text class="iconfont icon-next my-manage-item-icon"/></text>
       </block>
@@ -31,17 +31,17 @@
       </block>
     </view>
   </view>
-   <!--<view class="h-flex my-manage-item" bindtap="braceletTap">
+   <view class="h-flex my-manage-item my-manage-item-2" bindtap="addDevice">
     <view class="my-manage-item-icon-c">
       <view class="my-manage-item-icon-c-share">
-        <text class="iconfont icon-shouhuan my-manage-item-icon"/>
+        <text class="iconfont icon-tianjia my-manage-item-icon"/>
         <view class="verticle-middle"></view>
       </view>
-      <text class="my-manage-item-text">手环</text>
-       <text class="check-out">未绑定</text>
+      <text class="my-manage-item-text">添加设备</text>
+     <text class="iconfont icon-next my-manage-item-icon goto-next"/>
     </view>
   </view>
-   <view class="h-flex my-manage-item" bindtap="otherTap">
+   <!--<view class="h-flex my-manage-item" bindtap="otherTap">
     <view class="my-manage-item-icon-c">
       <view class="my-manage-item-icon-c-share">
         <text class="iconfont icon-qita my-manage-item-icon"/>
@@ -50,31 +50,34 @@
       <text class="my-manage-item-text">其他</text>  
     </view>
   </view>-->
-  <view class="h-flex my-manage-item  my-manage-item-2" bindtap="deleteTap">
+  <view class="h-flex my-manage-item  my-manage-item-3" bindtap="deleteTap">
     <view class="my-manage-item-icon-c">
       <view class="my-manage-item-icon-c-share">
         <text class="iconfont icon-qingchuhuancun my-manage-item-icon"/>
         <view class="verticle-middle"></view>
       </view>
       <text class="my-manage-item-text">删除数据</text>
+      <text class="iconfont icon-next my-manage-item-icon goto-next"/>
     </view>
   </view>
-  <view class="h-flex my-manage-item my-manage-item-3" bindtap="ownTap">
+  <view class="h-flex my-manage-item my-manage-item-4" bindtap="ownTap">
     <view class="my-manage-item-icon-c">
       <view class="my-manage-item-icon-c-share">
         <text class="iconfont icon-yinsishuoming my-manage-item-icon"/>
         <view class="verticle-middle"></view>
       </view>
       <text class="my-manage-item-text">隐私说明</text>
+      <text class="iconfont icon-next my-manage-item-icon goto-next"/>
     </view>
   </view>
-  <view class="h-flex my-manage-item my-manage-item-4" bindtap="useHelpTap">
+  <view class="h-flex my-manage-item my-manage-item-5" bindtap="useHelpTap">
     <view class="my-manage-item-icon-c">
       <view class="my-manage-item-icon-c-share">
         <text class="iconfont icon-ruheshiyong my-manage-item-icon"/>
         <view class="verticle-middle"></view>
       </view>
       <text class="my-manage-item-text">如何使用</text>
+      <text class="iconfont icon-next my-manage-item-icon goto-next"/>
     </view>
   </view>
   <!--<view class="h-flex my-manage-item" bindtap="downLoadTap">

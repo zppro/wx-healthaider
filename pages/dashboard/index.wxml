@@ -27,51 +27,51 @@
           </view>
         </view>
         <view class="status-score h-flex">
-          <block wx:if="{{attachedDevices.length>1}}">
-            <view class="pre">
-              <text class="iconfont icon-arrowleft" />
-            </view>
+          <block wx:if="{{attachedDevices.length<=1 || attachedDevice.order == 0}}">
+            <view class="pre-no"></view>
           </block>
           <block wx:else>
-            <view class="pre-no"></view>
+             <view class="pre" catchtap="nextPerson" data-id="{{attachedDevice.order-1}}">
+              <text class="iconfont icon-arrowleft" />
+            </view>
           </block>
           <view class="status-score-box">
             <view class="status-score-image-box">
               <image src="../../images/watch.png"></image>
               <view class="h-flex status-score-text">
-                <text>{{attachedDevices[0].sleepStatus.evalution}}</text>
+                <text>{{attachedDevice.sleepStatus.evalution}}</text>
                 <text class="fen">分</text>
               </view>
             </view>
           </view>
-          <block wx:if="{{attachedDevices.length>1}}">
-            <view class="next">
-              <text class="iconfont icon-arrowright" />
-            </view>
+          <block wx:if="{{attachedDevices.length<=1||attachedDevice.order ==attachedDevices.length-1}}">
+            <view class="next-no"></view>
           </block>
           <block wx:else>
-            <view class="next-no"></view>
+            <view class="next" catchtap="nextPerson" data-id="{{attachedDevice.order+1}}">
+              <text class="iconfont icon-arrowright" />
+            </view>
           </block>
         </view>
       </view>
       <view class="item-ul v-flex">
         <view class="item-ul-li h-flex item-ul-li-personInfo">
-          <view class="item-headpic" catchtap="changeCarePersionAvatar" data-id="0">
-          <block wx:if="{{attachedDevices[0].portraitUrl == ''|| attachedDevices[0].portraitUrl == undefined}}">
-            <image src="../../images/father.png" mode="aspectFit"></image>
+          <view class="item-headpic" catchtap="ownInfo" data-id="{{attachedDevice.order}}">
+          <block wx:if="{{attachedDevice.portraitUrl == ''|| attachedDevice.portraitUrl == undefined}}">
+            <image class="item-headpic-img" src="../../images/father.png" mode="aspectFit"></image>
           </block>
           <block wx:else>
-            <image src="{{attachedDevices[0].portraitUrl}}" mode="aspectFit"></image>
+            <image class="item-headpic-img" src="{{attachedDevice.portraitUrl}}" mode="aspectFit"></image>
           </block>
           </view>
           <view class="item-info v-flex">
-            <text class="care-name">{{attachedDevices[0].memberName}}</text>
+            <text class="care-name">{{attachedDevice.carePersonName}}</text>
             <text class="care-text">我关心的人</text>
           </view>
-          <view class="more-info">
+          <!--<view class="more-info">
             <text class="more-text" bindtap="showMoreInfo">查看更多</text>
             <text class="iconfont icon-arrowright icon-more" />
-          </view>
+          </view>-->
         </view>
         <view class="item-ul-li h-flex">
           <view class="item">
@@ -79,11 +79,11 @@
           </view>
           <view class="item care-time">
             <text class="care-time-text">入睡时间</text>
-            <block wx:if="{{attachedDevices[0].sleepStatus.fallAsleepTime == 0}}">
+            <block wx:if="{{attachedDevice.sleepStatus.fallAsleepTime == 0}}">
               <text class="care-times">--</text>
             </block>
             <block wx:else>
-              <text class="care-times">{{attachedDevices[0].sleepStatus.fallAsleepTime}}</text>
+              <text class="care-times">{{attachedDevice.sleepStatus.fallAsleepTime}}</text>
 
               <!--<text class="care-tip-text">早早睡觉有助于增强身体免疫力哦！</text>-->
             </block>
@@ -95,7 +95,7 @@
           </view>
           <view class="item care-time">
             <text class="care-time-text">睡眠时间</text>
-            <text class="care-times">{{attachedDevices[0].sleepStatus.sleepTime}}</text>
+            <text class="care-times">{{attachedDevice.sleepStatus.sleepTime}}</text>
             <text class="h">h</text>
 
             <!--<text class="care-tip-text">睡眠时间充足</text>-->
@@ -107,7 +107,7 @@
           </view>
           <view class="item care-time">
             <text class="care-time-text">深度睡眠</text>
-            <text class="care-times">{{attachedDevices[0].sleepStatus.deepSleepTime}}</text>
+            <text class="care-times">{{attachedDevice.sleepStatus.deepSleepTime}}</text>
             <text class="h">h</text>
 
             <!--<text class="care-tip-text">深度睡眠时间偏低，充足的深度睡眠时间才是好的睡眠保障！</text>-->

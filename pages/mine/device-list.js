@@ -4,41 +4,48 @@ import keys from '../../config/keys.js'
 var app = getApp()
 Page({
     data: {
-      // attachedDevices:[{name:'睡眠监测带',memberName:'爸爸',deviceId:'A1100065'},{name:'睡眠监测带',memberName:'爸爸',deviceId:'A1100065'}]
-      attachedDevices:[]
+       //attachedDevices:[{name:'睡眠监测带',memberName:'爸爸',deviceId:'A1100065'},{name:'睡眠监测带',memberName:'爸爸',deviceId:'A1100065'}],
+      memberCarePersonInfo:{}
     },
-    gotoDetails:function(e){
+    removeDevice:function(e){
         console.log(e);
-        var id = e.currentTarget.dataset.id
-          wx.navigateTo({
-            url: '../mine/device-info?id='+id
+        let that = this
+        let deviceId = e.currentTarget.dataset.id
+        var tenantId = app.config[keys.CONFIG_SERVER].getTenantId();
+        wx.showModal({
+            title: '确定解绑？',
+            success: function (res) {
+                if (res.confirm) {
+                    app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$removeDevice', { deviceId, tenantId}, (ret) => {
+                        console.log("解除绑定");
+                        app.gOnShowFlags[keys.G_ON_SHOW_NEW_ATTACH_DEVICE]=true
+                        wx.switchTab({
+                            url: '../dashboard/index'
+                            })
+                    }, { loadingText: false });
+                } else if (res.cancel) {
+                    console.log('用户点击取消')
+                }
+            }
         })
     },
-     addDevice: function () {
-        console.log("addDevice")
-        wx.scanCode({
-            success: (res) => {
-                console.log(res.result)
-                 wx.navigateTo({
-                    url: '../mine/addDevice?info='+res.result
-                })
-            },
-    })
-    },
-    getAttachedDevices: function () {
+    getCarePersonInfoById: function (cid) {
         let that = this
-        app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getAttachDevice', {}, (attachedDevices) => {
-            console.log("getAttachedDevices成功");
-            console.log(attachedDevices);
+        app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getCarePersonInfoById', {cid}, (ret) => {
+            console.log("getCarePersonInfoById");
+            console.log(ret.memberCarePerson);
             that.setData({
-                attachedDevices: attachedDevices
+                memberCarePersonInfo: ret.memberCarePerson
             })
         }, { loadingText: false });
     },
-     onShow: function (options) {
-      this.getAttachedDevices() 
-     },
+    //  onShow: function (options) {
+    //   this.getCarePersonInfoById() 
+    //  },
     onLoad: function (options) {
-        this.getAttachedDevices()
+        console.log(" carePerson")
+        var cid = options.id
+        console.log(" carePerson:",cid)
+        this.getCarePersonInfoById(cid)
     }
 })

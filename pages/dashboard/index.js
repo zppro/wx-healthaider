@@ -4,26 +4,51 @@ import keys from '../../config/keys.js'
 var app = getApp()
 Page({
     data: {
-        //attachedDevices: [{ memberName: '爸爸', sleepStatus: { fallAsleepTime: '0', sleepTime: '9', deepSleepTime: '3', evalution: '85' }}]
+        //attachedDevices: [{ memberName: '爸爸', sleepStatus: { fallAsleepTime: '0', sleepTime: '9', deepSleepTime: '3', evalution: '85' } }],
         uptoken: null,
+        attachedDevice:{},
         attachedDevices: []
     },
+    nextPerson:function(e){
+        let old_order = e.currentTarget.dataset.id
+        let attachedDevices = this.data.attachedDevices
+        let attachedDevice = this.data.attachedDevice
+        let order = old_order
+        attachedDevice = attachedDevices[order]
+        attachedDevice.order = order
+        this.setData({
+            attachedDevice
+        })
+    }
+    ,
     onPullDownRefresh: function () {
         this.getAttachedDevices(() => { wx.stopPullDownRefresh() })
     },
-    changeCarePersionAvatar: function (e) {
-        let that = this;
+    ownInfo: function (e) {
         let id = e.currentTarget.dataset.id
-        if (!this.data.uptoken) {
-            this.getUpToken().then(function (uptoken) {
-                that.setData({
-                    uptoken
-                })
-                that.didPressChooseImage(id)
-            });
-        } else {
-            this.didPressChooseImage(id)
-        }
+        let attachedDevices = this.data.attachedDevices;
+        console.log("ownInfo:",attachedDevices[id]);
+        let cid = attachedDevices[id].carePersonId;
+        wx.navigateTo({
+            url: '../mine/carePerson-info?cid='+cid
+        })
+    },
+    changeCarePersionAvatar: function (e) {
+        wx.navigateTo({
+            url: '../mine/carePerson-info'
+        })
+        // let that = this;
+        // let id = e.currentTarget.dataset.id
+        // if (!this.data.uptoken) {
+        //     this.getUpToken().then(function (uptoken) {
+        //         that.setData({
+        //             uptoken
+        //         })
+        //         that.didPressChooseImage(id)
+        //     });
+        // } else {
+        //     this.didPressChooseImage(id)
+        // }
     },
     didPressChooseImage: function (id) {
         let that = this;
@@ -45,11 +70,11 @@ Page({
                     //  }
                     // 参考http://developer.qiniu.com/docs/v6/api/overview/up/response/simple-response.html
                     console.log('upload success:', res.imageURL);
-                    let portraitUrl =  res.imageURL
-                    app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$changeCarePersonPortrait', {portraitUrl,deviceName,tenantId}, (ret) => {
+                    let portraitUrl = res.imageURL
+                    app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$changeCarePersonPortrait', { portraitUrl, deviceName, tenantId }, (ret) => {
                         console.log("changeCarePersonPortrait okertrip");
                         attachedDevices[id].portraitUrl = portraitUrl
-                        console.log("attachedDevices imageURL:",attachedDevices[id].portraitUrl)
+                        console.log("attachedDevices imageURL:", attachedDevices[id].portraitUrl)
                         that.setData({
                             attachedDevices
                         })
@@ -97,12 +122,18 @@ Page({
     },
     getAttachedDevices: function (cb) {
         let that = this
+        let attachedDevice = this.data.attachedDevice
+       
         app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getAttachDevice', {}, (attachedDevices) => {
-            console.log("getAttachedDevices成功");
-            console.log(attachedDevices);
+            console.log("getAttachedDevices成功")
+            console.log(attachedDevices)
+            attachedDevice = attachedDevices[0]
+            attachedDevice.order = 0
             that.setData({
-                attachedDevices: attachedDevices
+                attachedDevices: attachedDevices,
+                attachedDevice:attachedDevice
             })
+            console.log("attachedDevice1",attachedDevice)
             wx.setStorage({
                 key: "attachedDeviceNumbers",
                 data: attachedDevices.length
@@ -115,7 +146,10 @@ Page({
     },
     onLoad: function (options) {
         let that = this
+<<<<<<< HEAD
         // console.log("index:", app)
+=======
+>>>>>>> e518529f3a1b3281ef7ba15e6d2823075feb1c7c
         app.toast.init(this)
         this.getAttachedDevices()
     },

@@ -24,76 +24,59 @@ page{
     top:10px;
     width: 100%;
     text-align: center;
+     border-top: 1rpx solid #1082bf;
+    margin-top: 30rpx;
 }
-.add-device-img{
-    width: 200rpx;
-    height: 200rpx;
+.add-carePerson-img{
+    width: 294rpx;
+    height: 294rpx;
     margin: 30rpx auto;
-     background-color: #ccc;
 }
-.add-device-img image{
+.add-carePerson-img image{
     width: 100%;
     height: 100%;
     float: left;
 }
-.add-device-img text{
+.add-carePerson-img text{
     float: left;
     font-size:24rpx;
     margin-top:-100rpx;
     margin-left: 80rpx;
 }
-.carePerson-name{
-    font-size:42rpx;
-    color:#fff;
-}
-.device-lis{
+.carePerson-list{
     width: 100%;
+   
 }
-.device-li-item{
+.carePerson-li-item{
     width: 100%;
     height: 184rpx;
     border-bottom: 1rpx solid #1082bf;
 }
-.device-img{
+.carePerson-img{
     width:124rpx;
     height: 124rpx;
-    padding-left: 30rpx;
+    margin: 0 30rpx 0 30rpx;
+    background-color: #ccc;
+    border-radius: 5rpx;
 }
-.device-img image{
+.carePerson-img image{
     width: 100%;
     height: 100%;
 }
-.device-info{
+.carePerson-info{
     height: 124rpx;
     line-height: 124rpx;
     align-items: flex-start;
-    margin-left: 30rpx;
-    flex:4;
-}
-.device-name{
-    font-size: 30rpx;
     text-align: left;
-    margin-top: 50rpx;
-    margin-left: 30rpx;    
+    /*width:130rpx;*/
+    flex:5;
 }
-.device-id{
-    font-size: 36rpx;  
-    color:#0c173d;
-
+.carePerson-name{
+    font-size: 36rpx;
 }
-.device-pname{
-    font-size: 24rpx;
-    color:#0c173d;
-}
-.device-info-more{
-    width: 200rpx;
-    flex:3;
-}
-.btn{
-    width: 200rpx;
-    height: 74rpx;
-    line-height: 74rpx;
-    font-size:36rpx;
-    color:#454545;
-    background: #ddd;
+.carePerson-info-more{
+    /*padding-left: 130px;*/
+    width: 50rpx;
+    float: right;
+    flex:1;
 }

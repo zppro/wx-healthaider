@@ -16,9 +16,10 @@
     "navigationBarTextStyle": "#0f79b5"
   },
   "tabBar": {
-    "color": "#777777",
-    "selectedColor": "#0f79b5",
-    "borderStyle": "#0f79b5",
+    "color": "#fff",
+    "selectedColor": "#fff",
+    "borderStyle": "#fff",
+    "backgroundColor": "#0b5884",
     "list": [
       {
         "selectedIconPath": "images/首页点击后.png",

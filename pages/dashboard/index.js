@@ -115,7 +115,7 @@ Page({
     },
     onLoad: function (options) {
         let that = this
-        console.log("index:", app)
+        // console.log("index:", app)
         app.toast.init(this)
         this.getAttachedDevices()
     },

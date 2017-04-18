@@ -68,10 +68,10 @@
             <text class="care-name">{{attachedDevice.carePersonName}}</text>
             <text class="care-text">我关心的人</text>
           </view>
-          <!--<view class="more-info">
-            <text class="more-text" bindtap="showMoreInfo">查看更多</text>
+          <view class="more-info">
+            <text class="more-text" bindtap="showMoreInfo" data-id="{{attachedDevice.deviceName}}">查看更多</text>
             <text class="iconfont icon-arrowright icon-more" />
-          </view>-->
+          </view>
         </view>
         <view class="item-ul-li h-flex">
           <view class="item">
@@ -83,7 +83,7 @@
               <text class="care-times">--</text>
             </block>
             <block wx:else>
-              <text class="care-times">{{attachedDevice.sleepStatus.fallAsleepTime}}</text>
+              <text class="care-times fallTime">{{attachedDevice.sleepStatus.fallAsleepTime}}</text>
 
               <!--<text class="care-tip-text">早早睡觉有助于增强身体免疫力哦！</text>-->
             </block>

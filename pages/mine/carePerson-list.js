@@ -28,7 +28,8 @@ Page({
     },
     getAttachedDevices: function () {
         let that = this
-        app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getAttachDevice', {}, (attachedcarePersons) => {
+        let tenantId = app.config[keys.CONFIG_SERVER].getTenantId();
+        app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getAttachDevice', {tenantId}, (attachedcarePersons) => {
             console.log("getAttachedDevices成功");
             console.log(attachedcarePersons);
             that.setData({

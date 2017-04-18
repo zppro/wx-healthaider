@@ -1,0 +1,143 @@
+page {
+  width: 100%;
+  height: 100%;
+  color: white;
+  background-color: #0f79b5;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.bg-img {
+  width: 100%;
+  height: 100%;
+}
+
+.contain-box {
+  position: absolute;
+  z-index: 9999;
+  top: 10px;
+  width: 100%;
+  text-align: center;
+  margin-top: 30rpx;
+}
+
+.time-box {
+  height: 100rpx;
+  font-size: 28rpx;
+}
+
+.yesterday-report {
+  width: 100%;
+  color: #fff;
+  height: 450rpx;
+}
+
+.yesterday-report-info {
+  width: 100%;
+}
+
+.yesterday-report-info-box {
+  width: 50%;
+  height: 110rpx;
+}
+
+.yesterday-report-info-time {
+  font-size: 32rpx;
+  height: 60rpx;
+  display: block;
+}
+
+.yesterday-report-info-text {
+  font-size: 24rpx;
+  color: #0f79b5;
+}
+
+#cd-timeline {
+ width: 92%;
+  position: relative;
+  padding: 1rpx 0;
+  margin:2rpx auto;
+  margin-bottom:30rpx;
+}
+#cd-timeline::before {
+  /* this is the vertical line */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 18rpx;
+  height: 100%;
+  width: 2rpx;
+  background: #0d6cae;
+}
+.cd-timeline-block {
+  position: relative;
+  margin: 10rpx 0;
+  height: 128rpx;
+}
+.endTime-box{ 
+    width: 90%;
+    text-align: left;
+    height: 80rpx;
+}
+.endTime{
+    font-size: 24rpx;
+    color:#0c173d;
+}
+.time-txt{
+    color:#0f79b5;
+    font-size:36rpx;
+    width: 33%;
+    display: inline-block;
+    text-align: center;
+}
+.cd-timeline-block:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.cd-timeline-block:first-child {
+  margin-top: 0;
+}
+.cd-timeline-block:last-child {
+  margin-bottom: 0;
+}
+.cd-timeline-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+}
+.icon-rushui1{
+    font-size:30rpx;
+    color:#0c173d;
+}
+.cd-timeline-content {
+  position: relative;
+  margin-left: 40rpx;
+  background: rgba(255,255,255,.3);
+  border-radius: 5rpx;
+}
+
+.cd-timeline-content-txt{
+    color:block;
+}
+
+.cd-timeline-content:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.cd-timeline-content p {
+  margin: 2rpx 0;
+  line-height: 2rpx;
+}
+.cd-timeline-content .cd-read-more {
+  float: right;
+  padding: 5rpx 2rpx;
+  background: #acb7c0;
+  color: white;
+  border-radius: 5rpx;
+}

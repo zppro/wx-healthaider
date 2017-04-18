@@ -4,7 +4,7 @@ import keys from '../../config/keys.js'
 var app = getApp()
 Page({
     data: {
-      // attachedcarePersons:[{carePersonId:'',name:'睡眠监测带',carePersonName:'爸爸',deviceId:'A1100065'},{name:'睡眠监测带',memberName:'爸爸',deviceId:'A1100065'}]
+     // attachedcarePersons:[{carePersonId:'',name:'睡眠监测带',carePersonName:'爸爸',deviceId:'A1100065'},{name:'睡眠监测带',memberName:'爸爸',deviceId:'A1100065'}],
       attachedcarePersons:[]
     },
     gotoDeviceList:function(e){

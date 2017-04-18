@@ -12,6 +12,7 @@ Page({
         let that = this
         let deviceId = e.currentTarget.dataset.id
         var tenantId = app.config[keys.CONFIG_SERVER].getTenantId();
+        console.log("deviceId",deviceId)
         wx.showModal({
             title: '确定解绑？',
             success: function (res) {

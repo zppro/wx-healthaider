@@ -219,6 +219,6 @@ page {
   box-sizing: border-box;
 }
 
-/*.fallTime{
-  padding:0; 
-}*/
+.fallTime,.deepSleepTime,.sleepTime{
+  letter-spacing: 5rpx; 
+}

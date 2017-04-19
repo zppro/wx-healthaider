@@ -7,7 +7,7 @@
     </block>
      <block wx:else>
     <view class="time-box">
-      <text>{{report.beginTime}} 12:00 - {{report.endTime}} 12:00</text>
+      <text>昨日 12:00 - 今日 12:00</text>
     </view>
     </block>
     <view class="yesterday-report v-flex">

@@ -17,9 +17,13 @@ Page({
             title: '确定解绑？',
             success: function (res) {
                 if (res.confirm) {
+                    wx.showLoading({
+                        title: '解绑中',
+                        })
                     app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$removeDevice', { deviceId, tenantId}, (ret) => {
                         console.log("解除绑定");
                         app.gOnShowFlags[keys.G_ON_SHOW_NEW_ATTACH_DEVICE]=true
+                        wx.hideLoading()
                         wx.switchTab({
                             url: '../dashboard/index'
                             })

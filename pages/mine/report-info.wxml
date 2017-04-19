@@ -1,0 +1,117 @@
+<view class="container">
+  <view class="contain-box">
+  <block wx:if="{{report.endTime==undefined}}">
+    <view class="time-box">
+      <text>暂无数据</text>
+    </view>
+    </block>
+     <block wx:else>
+    <view class="time-box">
+      <text>{{report.beginTime}} 12:00 - {{report.endTime}} 12:00</text>
+    </view>
+    </block>
+    <view class="yesterday-report v-flex">
+      <view class="yesterday-report-info h-flex">
+        <view class="yesterday-report-info-box v-flex">
+          <block wx:if="{{report.fallasleep_time==undefined}}">
+            <text class="yesterday-report-info-time">--</text>
+          </block>
+          <block wx:else>
+            <text class="yesterday-report-info-time">{{report.fallasleep_time}}</text>
+          </block>
+          <text class="yesterday-report-info-text">入睡时间</text>
+        </view>
+        <view class="yesterday-report-info-box v-flex">
+          <block wx:if="{{report.awake_time==undefined}}">
+            <text class="yesterday-report-info-time">--</text>
+          </block>
+          <block wx:else>
+            <text class="yesterday-report-info-time">{{report.awake_time}}</text>
+          </block>
+          <text class="yesterday-report-info-text">清醒时间</text>
+        </view>
+      </view>
+      <view class="yesterday-report-info h-flex">
+        <view class="yesterday-report-info-box v-flex">
+          <block wx:if="{{report.light_sleep_duraion==undefined}}">
+            <text class="yesterday-report-info-time">--</text>
+          </block>
+          <block wx:else>
+            <text class="yesterday-report-info-time">{{report.light_sleep_duraion}}h</text>
+          </block>
+          <text class="yesterday-report-info-text">浅度睡眠时间</text>
+        </view>
+        <view class="yesterday-report-info-box v-flex">
+          <block wx:if="{{report.deep_sleep_duraion==undefined}}">
+            <text class="yesterday-report-info-time">--</text>
+          </block>
+          <block wx:else>
+            <text class="yesterday-report-info-time">{{report.deep_sleep_duraion}}h</text>
+          </block>
+          <text class="yesterday-report-info-text">深度睡眠时间</text>
+        </view>
+      </view>
+      <view class="yesterday-report-info h-flex">
+        <view class="yesterday-report-info-box v-flex">
+          <block wx:if="{{report.turn_over_frequency==undefined}}">
+            <text class="yesterday-report-info-time">--</text>
+          </block>
+          <block wx:else>
+            <text class="yesterday-report-info-time">{{report.turn_over_frequency}}</text>
+          </block>
+          <text class="yesterday-report-info-text">翻身次数</text>
+        </view>
+        <view class="yesterday-report-info-box v-flex">
+          <block wx:if="{{report.off_bed_frequency==undefined}}">
+            <text class="yesterday-report-info-time">--</text>
+          </block>
+          <block wx:else>
+            <text class="yesterday-report-info-time">{{report.off_bed_frequency}}</text>
+          </block>
+          <text class="yesterday-report-info-text">离床次数</text>
+        </view>
+      </view>
+    </view>
+    <block wx:for="{{reportInfos}}" wx:for-index="idx" wx:for-item="reportInfo" wx:key="reportKey">
+      <block wx:if="{{reportInfo.fallasleep_time==undefined}}">
+        <view id="cd-timeline" class="cd-container">
+          <view class="cd-timeline-block">
+            <view class="cd-timeline-img">
+              <text class="iconfont icon-rushui1 icon-deep" />
+            </view>
+            <view class="cd-timeline-content v-flex">
+              <view class="endTime-box">
+                <text class="endTime">{{reportInfo.endTime}}</text>
+              </view>
+              <view class="endTime-box">
+                <text class="time-txt">--</text>
+                <text class="time-txt">--</text>
+                <text class="time-txt">--</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <view id="cd-timeline" class="cd-container">
+          <view class="cd-timeline-block">
+            <view class="cd-timeline-img">
+              <text class="iconfont icon-rushui1 icon-deep" />
+            </view>
+            <view class="cd-timeline-content v-flex">
+              <view class="endTime-box">
+                <text class="endTime">{{reportInfo.endTime}}</text>
+              </view>
+              <view class="endTime-box">
+                <text class="time-txt">{{reportInfo.fallasleep_time}}</text>
+                <text class="time-txt">{{reportInfo.light_sleep_duraion}}h</text>
+                <text class="time-txt">{{reportInfo.deep_sleep_duraion}}h</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </block>
+  </view>
+  <image class="bg-img" src="../../images/banner.png" mode="widthFix"></image>
+</view>

@@ -4,7 +4,7 @@ import keys from '../../config/keys.js'
 var app = getApp()
 Page({
     data: {
-        //attachedDevices: [{ memberName: '爸爸', sleepStatus: { fallAsleepTime: '0', sleepTime: '9', deepSleepTime: '3', evalution: '85' } }],
+        // attachedDevices: [{ memberName: '爸爸', sleepStatus: { fallAsleepTime: '0', sleepTime: '9', deepSleepTime: '3', evalution: '85' } }],
         uptoken: null,
         attachedDevice:{},
         attachedDevices: []
@@ -33,10 +33,12 @@ Page({
             url: '../mine/carePerson-info?cid='+cid
         })
     },
-    showMoreInfo: function () {
+    showMoreInfo: function (e) {
         console.log("showMoreInfo");
+        let devId = e.currentTarget.dataset.id
+        console.log("devId:",devId);
         wx.navigateTo({
-            url: '../mine/device-list'
+            url: '../mine/report-info?devId='+devId
         })
     },
     addDevice: function () {
@@ -57,8 +59,8 @@ Page({
     getAttachedDevices: function (cb) {
         let that = this
         let attachedDevice = this.data.attachedDevice
-       
-        app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getAttachDevice', {}, (attachedDevices) => {
+        let tenantId = app.config[keys.CONFIG_SERVER].getTenantId();
+        app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$getAttachDevice', {tenantId}, (attachedDevices) => {
             console.log("getAttachedDevices成功")
             console.log(attachedDevices)
             attachedDevice = attachedDevices[0]
@@ -80,7 +82,6 @@ Page({
     },
     onLoad: function (options) {
         let that = this
-
         app.toast.init(this)
         this.getAttachedDevices()
     },

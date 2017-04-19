@@ -15,18 +15,6 @@ Page({
         sex: '',
     },
     //事件
-    sleepZoneTap: function () {
-        console.log("sleepZoneTap")
-        // wx.scanCode({
-        //     complete: (res) => {
-        //         console.log(res.result)
-        //          wx.navigateTo({
-        //             url: './addDevice?info='+res.result
-        //         })
-        //     }
-        //     })
-
-    },
     bindSetSex: function (e) {
         var sexId = e.currentTarget.dataset.id
         let deviceInfo = this.data.deviceInfo
@@ -87,10 +75,12 @@ Page({
                 itemList: ['确定绑定？'],
                 itemColor: '#f00',
                 success: function (res) {
+                     wx.showLoading({
+                        title: '绑定中',
+                        })
                     app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$addDevice', { deviceInfo, tenantId }, (ret) => {
-                        console.log("设备添加接口成功");
-                        console.log(ret);
                         app.gOnShowFlags[keys.G_ON_SHOW_NEW_ATTACH_DEVICE] = true
+                        wx.hideLoading()
                         wx.switchTab({
                             url: '../dashboard/index'
                         })
@@ -140,16 +130,12 @@ Page({
         var deviceId = "A" + result[1]
         var deviceMac = result[0]
         app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$isAttach', { deviceId, tenantId }, (ret) => {
-            console.log('RET:', ret);
             if (ret.isAttach) {
                 console.log("true");
                 wx.showModal({
                     content: '请勿重复绑定同一个设备',
                     showCancel: false,
                     success: function (res) {
-                        // wx.redirectTo({
-                        //     url: '../mine/mine'
-                        // })
                         wx.switchTab({
                             url: '/pages/mine/mine'
                         })

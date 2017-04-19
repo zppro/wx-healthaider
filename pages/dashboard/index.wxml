@@ -95,7 +95,7 @@
           </view>
           <view class="item care-time">
             <text class="care-time-text">睡眠时间</text>
-            <text class="care-times">{{attachedDevice.sleepStatus.sleepTime}}</text>
+            <text class="care-times sleepTime">{{attachedDevice.sleepStatus.sleepTime}}</text>
             <text class="h">h</text>
 
             <!--<text class="care-tip-text">睡眠时间充足</text>-->
@@ -107,7 +107,7 @@
           </view>
           <view class="item care-time">
             <text class="care-time-text">深度睡眠</text>
-            <text class="care-times">{{attachedDevice.sleepStatus.deepSleepTime}}</text>
+            <text class="care-times deepSleepTime">{{attachedDevice.sleepStatus.deepSleepTime}}</text>
             <text class="h">h</text>
 
             <!--<text class="care-tip-text">深度睡眠时间偏低，充足的深度睡眠时间才是好的睡眠保障！</text>-->

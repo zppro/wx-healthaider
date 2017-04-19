@@ -52,15 +52,6 @@ Page({
                     that.setData({
                             memberCarePersonInfo
                         })
-                    // app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$changeCarePersonPortrait', { portraitUrl, id }, (ret) => {
-                    //     console.log("changeCarePersonPortrait okertrip");
-                    //     memberCarePersonInfo.portraitUrl = portraitUrl
-                    //     console.log("attachedDevices imageURL:", memberCarePersonInfo.portraitUrl)
-                    //     that.setData({
-                    //         memberCarePersonInfo
-                    //     })
-                    //     console.log(attachedDevices);
-                    // }, { loadingText: false })
                 }, (error) => {
                     console.log('error: ' + error);
                 }, {
@@ -153,9 +144,13 @@ Page({
                 itemList: ['确定修改？'],
                 itemColor: '#f00',
                 success: function (res) {
+                      wx.showLoading({
+                        title: '保存中',
+                        })
                     app.libs.http.post(app.config[keys.CONFIG_SERVER].getBizUrl() + 'sleepDevicews$changeCarePersonInfo', { memberCarePersonInfo, tenantId }, (ret) => {
                         console.log("信息修改成功");
                         app.gOnShowFlags[keys.G_ON_SHOW_NEW_ATTACH_DEVICE] = true
+                        wx.hideLoading()
                         wx.switchTab({
                             url: '../dashboard/index'
                          })
